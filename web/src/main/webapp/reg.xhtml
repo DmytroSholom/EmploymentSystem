@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel value="ID:" for="id" />
+			<h:inputText id="id" value="#{userBean.student.id}" /><br />
+			<h:outputLabel value="fname:" for="fname" />
+			<h:inputText id="fname" value="#{userBean.student.firstName}" /><br />
+			<h:outputLabel value="mname:" for="mname" />
+			<h:inputText id="mname" value="#{userBean.student.middleName}" /><br />
+			<h:outputLabel value="lname:" for="lname" />
+			<h:inputText id="lname" value="#{userBean.student.lastName}" /><br />
+			<h:commandButton value="Register" action="#{userBean.register()}" />
+		</h:form>
+	</ui:define>
+</ui:composition>

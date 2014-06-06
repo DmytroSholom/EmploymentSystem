@@ -9,7 +9,6 @@ import javax.persistence.*;
  *
  */
 @Entity
-
 public class Category implements Serializable {
 	
 	@Id

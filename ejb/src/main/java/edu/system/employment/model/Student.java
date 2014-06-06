@@ -1,6 +1,7 @@
 package edu.system.employment.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +14,8 @@ import javax.persistence.*;
 @Entity
 public class Student implements Serializable {	
 	
-	@Id
+	@SequenceGenerator(name="studGen", sequenceName="STUD_SEQ")
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="studGen")
 	private long id;
 	@Column(name="FNAME")
 	private String firstName;
@@ -28,7 +30,7 @@ public class Student implements Serializable {
 	private String phone;
 	private String status;
 	
-	@ManyToOne @JoinColumn(name="GROUP_ID")
+	@ManyToOne(cascade=CascadeType.ALL) @JoinColumn(name="GROUP_ID")
 	private Group group;
 	
 	@ElementCollection(fetch=FetchType.LAZY)
@@ -54,7 +56,7 @@ public class Student implements Serializable {
 						joinColumns=@JoinColumn(name="STUD_ID"))
 	private List<Additional> additionals;
 	
-	@ManyToMany(fetch=FetchType.LAZY)
+	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinTable(name="STUDENTS_ADDRESS", 
 				joinColumns=@JoinColumn(name="STUD_ID"),
 				inverseJoinColumns=@JoinColumn(name="ADDR_ID"))
@@ -138,38 +140,87 @@ public class Student implements Serializable {
 	}
 
 	public List<Education> getEducations() {
+		if(educations == null)
+			educations = new ArrayList<>();
 		return educations;
 	}
 
 	public void setEducations(List<Education> educations) {
 		this.educations = educations;
 	}
+	public Education addEducation(Education education) {
+		getEducations().add(education);
+		return education;
+	}
+
+	public Education removeEducation(Education education) {
+		getEducations().remove(education);
+		return education;
+	}
 
 	public List<Employment> getEmployments() {
+		if(employments == null)
+			employments = new ArrayList<>();
 		return employments;
 	}
 
 	public void setEmployments(List<Employment> employments) {
 		this.employments = employments;
 	}
+	
+	public Employment addEmployment(Employment employment) {
+		getEmployments().add(employment);
+		return employment;
+	}
+
+	public Employment removeEmployment(Employment employment) {
+		getEmployments().remove(employment);
+		return employment;
+	}
 
 	public List<Course> getCourses() {
+		if(courses == null)
+			courses = new ArrayList<>();
 		return courses;
 	}
 
 	public void setCourses(List<Course> courses) {
 		this.courses = courses;
 	}
+	
+	public Course addCourse(Course course) {
+		getCourses().add(course);
+		return course;
+	}
+
+	public Course removeCourse(Course course) {
+		getCourses().remove(course);
+		return course;
+	}
 
 	public List<Language> getLanguages() {
+		if (languages==null)
+			languages = new ArrayList<>();
 		return languages;
 	}
 
 	public void setLanguages(List<Language> languages) {
 		this.languages = languages;
 	}
+	
+	public Language addLanguage(Language language) {
+		getLanguages().add(language);
+		return language;
+	}
 
+	public Language removeLanguage(Language language) {
+		getLanguages().remove(language);
+		return language;
+	}
+	
 	public List<Additional> getAdditionals() {
+		if (additionals==null)
+			additionals = new ArrayList<>();
 		return additionals;
 	}
 
@@ -178,12 +229,25 @@ public class Student implements Serializable {
 	}
 
 	public List<Address> getAddresses() {
+		if (addresses == null) 
+			addresses = new ArrayList<>();
 		return addresses;
 	}
 
 	public void setAddresses(List<Address> addresses) {
 		this.addresses = addresses;
 	}
+	
+	public Address addAddress(Address address) {
+		getAddresses().add(address);
+		return address;
+	}
+
+	public Address removeAddress(Address address) {
+		getAddresses().remove(address);
+		return address;
+	}
+
 
 	public User getUser() {
 		return user;

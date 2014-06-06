@@ -1,0 +1,451 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building EmploymentSystem - ejb 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ EmploymentSystem-ejb ---
+[INFO] Deleting D:\Workspaces\ee_test\EmploymentSystem\ejb\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ EmploymentSystem-ejb ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ EmploymentSystem-ejb ---
+[INFO] Compiling 16 source files to D:\Workspaces\ee_test\EmploymentSystem\ejb\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ EmploymentSystem-ejb ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ EmploymentSystem-ejb ---
+[INFO] Compiling 1 source file to D:\Workspaces\ee_test\EmploymentSystem\ejb\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ EmploymentSystem-ejb ---
+[INFO] Surefire report directory: D:\Workspaces\ee_test\EmploymentSystem\ejb\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running edu.system.employment.test.StudentServiceTest
+20:31:40,691 INFO  [org.jboss.modules] (main) JBoss Modules version 1.3.0.Final
+20:31:40,983 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.0.Final
+20:31:41,062 INFO  [org.jboss.as] (MSC service thread 1-6) JBAS015899: WildFly 8.0.0.Final "WildFly" starting
+20:31:42,037 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) JBAS015003: Found EmploymentSystem-ear.ear in deployment directory. To trigger deployment create a file called EmploymentSystem-ear.ear.dodeploy
+20:31:42,054 INFO  [org.jboss.as.server] (Controller Boot Thread) JBAS015888: Creating http management service using socket-binding (management-http)
+20:31:42,071 INFO  [org.xnio] (MSC service thread 1-12) XNIO version 3.2.0.Final
+20:31:42,079 INFO  [org.xnio.nio] (MSC service thread 1-12) XNIO NIO Implementation Version 3.2.0.Final
+20:31:42,097 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 46) JBAS013171: Activating Security Subsystem
+20:31:42,104 INFO  [org.jboss.as.security] (MSC service thread 1-10) JBAS013170: Current PicketBox version=4.0.20.Final
+20:31:42,110 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 41) JBAS011800: Activating Naming Subsystem
+20:31:42,112 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 50) JBAS015537: Activating WebServices Extension
+20:31:42,123 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 39) JBAS012615: Activated the following JSF Implementations: [main]
+20:31:42,127 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 33) JBAS010280: Activating Infinispan subsystem.
+20:31:42,155 INFO  [org.jboss.as.connector.logging] (MSC service thread 1-9) JBAS010408: Starting JCA Subsystem (IronJacamar 1.1.3.Final)
+20:31:42,162 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-9) JBAS017502: Undertow 1.0.0.Final starting
+20:31:42,163 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 49) JBAS017502: Undertow 1.0.0.Final starting
+20:31:42,192 INFO  [org.jboss.as.naming] (MSC service thread 1-10) JBAS011802: Starting Naming Service
+20:31:42,193 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-7) JBAS015400: Bound mail session [java:jboss/mail/Default]
+20:31:42,225 INFO  [org.jboss.remoting] (MSC service thread 1-12) JBoss Remoting version 4.0.0.Final
+20:31:42,251 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 49) JBAS017527: Creating file handler for path D:\Server\wildfly-8.0.0.Final/welcome-content
+20:31:42,262 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-10) JBAS017525: Started server default-server.
+20:31:42,268 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 28) JBAS010403: Deploying JDBC-compliant driver class oracle.jdbc.driver.OracleDriver (version 11.2)
+20:31:42,271 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) JBAS017531: Host default-host starting
+20:31:42,271 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-16) JBAS010417: Started Driver service with driver-name = oracle
+20:31:42,282 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 28) JBAS010403: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+20:31:42,283 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-10) JBAS010417: Started Driver service with driver-name = h2
+20:31:42,367 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) JBAS017519: Undertow HTTP listener default listening on /127.0.0.1:8080
+20:31:42,490 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-2) JBAS015012: Started FileSystemDeploymentService for directory D:\Server\wildfly-8.0.0.Final\standalone\deployments
+20:31:42,494 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-15) JBAS015876: Starting deployment of "EmploymentSystem-ear.ear" (runtime-name: "EmploymentSystem-ear.ear")
+20:31:42,528 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) JBAS010400: Bound data source [java:jboss/datasources/ExampleDS]
+20:31:42,664 INFO  [org.jboss.ws.common.management] (MSC service thread 1-1) JBWS022052: Starting JBoss Web Services - Stack CXF Server 4.2.3.Final
+20:31:42,741 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) JBAS015876: Starting deployment of "null" (runtime-name: "EmploymentSystem-web.war")
+20:31:42,741 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) JBAS015876: Starting deployment of "null" (runtime-name: "EmploymentSystem-ejb.jar")
+20:31:42,954 INFO  [org.jboss.as.jpa] (MSC service thread 1-5) JBAS011401: Read persistence.xml for primary
+20:31:43,011 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) JBAS010400: Bound data source [java:jboss/datasources/EmploymentSystemDS]
+20:31:43,022 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 52) JBAS011409: Starting Persistence Unit (phase 1 of 2) Service 'EmploymentSystem-ear.ear/EmploymentSystem-ejb.jar#primary'
+20:31:43,026 INFO  [org.jboss.weld.deployer] (MSC service thread 1-11) JBAS016002: Processing weld deployment EmploymentSystem-ear.ear
+20:31:43,030 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 52) HHH000204: Processing PersistenceUnitInfo [
+	name: primary
+	...]
+20:31:43,091 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 52) HHH000412: Hibernate Core {4.3.1.Final}
+20:31:43,093 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 52) HHH000206: hibernate.properties not found
+20:31:43,095 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-11) HV000001: Hibernate Validator 5.0.3.Final
+20:31:43,095 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 52) HHH000021: Bytecode provider name : javassist
+20:31:43,199 INFO  [org.jboss.weld.deployer] (MSC service thread 1-5) JBAS016002: Processing weld deployment EmploymentSystem-web.war
+20:31:43,228 INFO  [org.jboss.weld.deployer] (MSC service thread 1-12) JBAS016002: Processing weld deployment EmploymentSystem-ejb.jar
+20:31:43,231 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-12) JNDI bindings for session bean named BaseDao in deployment unit subdeployment "EmploymentSystem-ejb.jar" of deployment "EmploymentSystem-ear.ear" are as follows:
+
+	java:global/EmploymentSystem-ear/EmploymentSystem-ejb/BaseDao!edu.system.employment.data.BaseDao
+	java:app/EmploymentSystem-ejb/BaseDao!edu.system.employment.data.BaseDao
+	java:module/BaseDao!edu.system.employment.data.BaseDao
+	java:global/EmploymentSystem-ear/EmploymentSystem-ejb/BaseDao
+	java:app/EmploymentSystem-ejb/BaseDao
+	java:module/BaseDao
+
+20:31:43,261 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) JBAS010403: Deploying JDBC-compliant driver class oracle.jdbc.OracleDriver (version 11.2)
+20:31:43,262 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016005: Starting Services for CDI deployment: EmploymentSystem-ear.ear
+20:31:43,291 INFO  [org.jboss.weld.Version] (MSC service thread 1-1) WELD-000900: 2.1.2 (Final)
+20:31:43,305 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-12) JBAS010417: Started Driver service with driver-name = EmploymentSystem-ear.ear_oracle.jdbc.OracleDriver_11_2
+20:31:43,305 INFO  [org.jboss.weld.deployer] (MSC service thread 1-11) JBAS016008: Starting weld service for deployment EmploymentSystem-ear.ear
+20:31:43,439 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 52) JBAS011409: Starting Persistence Unit (phase 2 of 2) Service 'EmploymentSystem-ear.ear/EmploymentSystem-ejb.jar#primary'
+20:31:43,512 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 52) HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+20:31:43,759 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 52) HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+20:31:44,202 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] (ServerService Thread Pool -- 52) HHH000397: Using ASTQueryTranslatorFactory
+20:31:44,557 INFO  [org.hibernate.tool.hbm2ddl.SchemaValidator] (ServerService Thread Pool -- 52) HHH000229: Running schema validator
+20:31:44,557 INFO  [org.hibernate.tool.hbm2ddl.SchemaValidator] (ServerService Thread Pool -- 52) HHH000102: Fetching database metadata
+20:31:44,639 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.ADDITIONAL
+20:31:44,639 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [id, tittle, stud_id, descr]
+20:31:44,644 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.AGROUP
+20:31:44,644 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [id, title]
+20:31:44,650 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.AUSER
+20:31:44,650 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [id, u_type, u_password, u_login]
+20:31:44,657 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.ADDRESS
+20:31:44,657 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [region, id, zip, home, street, rayon, city, country]
+20:31:44,662 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.COMPANY_ADDRESS
+20:31:44,663 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [id, comp_id, addr_id]
+20:31:44,668 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.COURSES
+20:31:44,669 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [id, title, stud_id, descr, place]
+20:31:44,674 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.CATEGORY
+20:31:44,674 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [id, title]
+20:31:44,679 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.COMPANY
+20:31:44,680 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [site, id, logo, title, email, cont_pers_id, user_id, descr]
+20:31:44,685 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.CONTACTPERSON
+20:31:44,685 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [position, id, phone, lname, fname]
+20:31:44,691 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.EDUCATION
+20:31:44,691 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [id, end_year, university, degree, speciality, department, start_year, stud_id]
+20:31:44,697 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.EMPLOYMENT
+20:31:44,697 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [position, id, end_year, start_year, company, stud_id]
+20:31:44,703 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.EMPLOYMENTLETTERS
+20:31:44,703 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [position, id, title, comp_id, create_date, stud_id, addr_id, code]
+20:31:44,708 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.LANGUAGES
+20:31:44,709 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [id, stud_id, language, descr]
+20:31:44,714 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.STUDENTS_ADDRESS
+20:31:44,714 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [id, stud_id, addr_id, type]
+20:31:44,720 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.STUDENT
+20:31:44,720 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [mname, id, phone, lname, birth_date, status, email, group_id, user_id, fname]
+20:31:44,727 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000261: Table found: ASOIU_EMP.VACANCY
+20:31:44,727 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (ServerService Thread Pool -- 52) HHH000037: Columns: [id, comp_id, occup_time, phone, propos_number, title, email, description, cont_person_name, category_id]
+20:31:45,391 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (MSC service thread 1-14) Initializing Mojarra 2.2.5-jbossorg-3 20140128-1641 for context '/EmploymentSystem-web'
+20:31:45,999 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-14) JBAS017534: Registered web context: /EmploymentSystem-web
+20:31:46,043 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 29) JBAS018559: Deployed "EmploymentSystem-ear.ear" (runtime-name : "EmploymentSystem-ear.ear")
+20:31:46,136 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015961: Http management interface listening on http://127.0.0.1:9990/management
+20:31:46,137 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015951: Admin console listening on http://127.0.0.1:9990
+20:31:46,137 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015874: WildFly 8.0.0.Final "WildFly" started in 5767ms - Started 380 of 444 services (106 services are lazy, passive or on-demand)
+20:31:47,721 INFO  [org.jboss.as.repository] (management-handler-thread - 2) JBAS014900: Content added at location D:\Server\wildfly-8.0.0.Final\standalone\data\content\a6\4d6ff09d371a6894a3a3787e4b1a9b93ea7a86\content
+20:31:47,734 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) JBAS015876: Starting deployment of "test.war" (runtime-name: "test.war")
+20:31:48,168 INFO  [org.jboss.as.jpa] (MSC service thread 1-5) JBAS011401: Read persistence.xml for primary
+20:31:48,186 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 7) JBAS011409: Starting Persistence Unit (phase 1 of 2) Service 'test.war#primary'
+20:31:48,187 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 7) HHH000204: Processing PersistenceUnitInfo [
+	name: primary
+	...]
+20:31:48,205 INFO  [org.jboss.weld.deployer] (MSC service thread 1-15) JBAS016002: Processing weld deployment test.war
+20:31:48,211 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-15) JNDI bindings for session bean named BaseDao in deployment unit deployment "test.war" are as follows:
+
+	java:global/test/BaseDao!edu.system.employment.data.BaseDao
+	java:app/test/BaseDao!edu.system.employment.data.BaseDao
+	java:module/BaseDao!edu.system.employment.data.BaseDao
+	java:global/test/BaseDao
+	java:app/test/BaseDao
+	java:module/BaseDao
+
+20:31:48,235 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016005: Starting Services for CDI deployment: test.war
+20:31:48,243 INFO  [org.jboss.weld.deployer] (MSC service thread 1-11) JBAS016008: Starting weld service for deployment test.war
+20:31:48,250 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 7) JBAS011409: Starting Persistence Unit (phase 2 of 2) Service 'test.war#primary'
+20:31:48,256 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 7) HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+20:31:48,258 ERROR [org.jboss.msc.service.fail] (ServerService Thread Pool -- 7) MSC000001: Failed to start service jboss.persistenceunit."test.war#primary": org.jboss.msc.service.StartException in service jboss.persistenceunit."test.war#primary": java.lang.NoClassDefFoundError: edu/system/employment/model/User
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1$1.run(PersistenceUnitServiceImpl.java:172) [wildfly-jpa-8.0.0.Final.jar:8.0.0.Final]
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1$1.run(PersistenceUnitServiceImpl.java:117) [wildfly-jpa-8.0.0.Final.jar:8.0.0.Final]
+	at java.security.AccessController.doPrivileged(Native Method) [rt.jar:1.7.0_60]
+	at org.wildfly.security.manager.WildFlySecurityManager.doChecked(WildFlySecurityManager.java:474)
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1.run(PersistenceUnitServiceImpl.java:182) [wildfly-jpa-8.0.0.Final.jar:8.0.0.Final]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [rt.jar:1.7.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [rt.jar:1.7.0_60]
+	at java.lang.Thread.run(Thread.java:745) [rt.jar:1.7.0_60]
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+Caused by: java.lang.NoClassDefFoundError: edu/system/employment/model/User
+	at java.lang.Class.getDeclaredMethods0(Native Method) [rt.jar:1.7.0_60]
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2570) [rt.jar:1.7.0_60]
+	at java.lang.Class.getDeclaredMethods(Class.java:1855) [rt.jar:1.7.0_60]
+	at org.hibernate.annotations.common.reflection.java.JavaXClass.getDeclaredMethodProperties(JavaXClass.java:112)
+	at org.hibernate.annotations.common.reflection.java.JavaXClass.getDeclaredProperties(JavaXClass.java:129)
+	at org.hibernate.annotations.common.reflection.java.JavaXClass.getDeclaredProperties(JavaXClass.java:121)
+	at org.hibernate.cfg.InheritanceState.determineDefaultAccessType(InheritanceState.java:263) [hibernate-core-4.3.1.Final.jar:4.3.1.Final]
+	at org.hibernate.cfg.InheritanceState.getElementsToProcess(InheritanceState.java:224) [hibernate-core-4.3.1.Final.jar:4.3.1.Final]
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:775) [hibernate-core-4.3.1.Final.jar:4.3.1.Final]
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processAnnotatedClassesQueue(Configuration.java:3790) [hibernate-core-4.3.1.Final.jar:4.3.1.Final]
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processMetadata(Configuration.java:3744) [hibernate-core-4.3.1.Final.jar:4.3.1.Final]
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1410) [hibernate-core-4.3.1.Final.jar:4.3.1.Final]
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1844) [hibernate-core-4.3.1.Final.jar:4.3.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:850) [hibernate-entitymanager-4.3.1.Final.jar:4.3.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$4.perform(EntityManagerFactoryBuilderImpl.java:843) [hibernate-entitymanager-4.3.1.Final.jar:4.3.1.Final]
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.withTccl(ClassLoaderServiceImpl.java:399) [hibernate-core-4.3.1.Final.jar:4.3.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:842) [hibernate-entitymanager-4.3.1.Final.jar:4.3.1.Final]
+	at org.jboss.as.jpa.hibernate4.TwoPhaseBootstrapImpl.build(TwoPhaseBootstrapImpl.java:44) [jipijapa-hibernate4-3-1.0.1.Final.jar:]
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1$1.run(PersistenceUnitServiceImpl.java:154) [wildfly-jpa-8.0.0.Final.jar:8.0.0.Final]
+	... 8 more
+Caused by: java.lang.ClassNotFoundException: edu.system.employment.model.User from [Module "deployment.test.war:main" from Service Module Loader]
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:197) [jboss-modules.jar:1.3.0.Final]
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:443) [jboss-modules.jar:1.3.0.Final]
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassChecked(ConcurrentClassLoader.java:431) [jboss-modules.jar:1.3.0.Final]
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:373) [jboss-modules.jar:1.3.0.Final]
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:118) [jboss-modules.jar:1.3.0.Final]
+	... 27 more
+
+20:31:48,266 ERROR [org.jboss.as.controller.management-operation] (management-handler-thread - 2) JBAS014613: Operation ("deploy") failed - address: ([("deployment" => "test.war")]) - failure description: {"JBAS014671: Failed services" => {"jboss.persistenceunit.\"test.war#primary\"" => "org.jboss.msc.service.StartException in service jboss.persistenceunit.\"test.war#primary\": java.lang.NoClassDefFoundError: edu/system/employment/model/User
+    Caused by: java.lang.NoClassDefFoundError: edu/system/employment/model/User
+    Caused by: java.lang.ClassNotFoundException: edu.system.employment.model.User from [Module \"deployment.test.war:main\" from Service Module Loader]"}}
+20:31:48,268 ERROR [org.jboss.as.server] (management-handler-thread - 2) JBAS015870: Deploy of deployment "test.war" was rolled back with the following failure message: 
+{"JBAS014671: Failed services" => {"jboss.persistenceunit.\"test.war#primary\"" => "org.jboss.msc.service.StartException in service jboss.persistenceunit.\"test.war#primary\": java.lang.NoClassDefFoundError: edu/system/employment/model/User
+    Caused by: java.lang.NoClassDefFoundError: edu/system/employment/model/User
+    Caused by: java.lang.ClassNotFoundException: edu.system.employment.model.User from [Module \"deployment.test.war:main\" from Service Module Loader]"}}
+20:31:48,273 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016009: Stopping weld service for deployment test.war
+20:31:48,286 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 7) JBAS011410: Stopping Persistence Unit (phase 1 of 2) Service 'test.war#primary'
+20:31:48,299 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment test.war (runtime-name: test.war) in 30ms
+20:31:48,306 INFO  [org.jboss.as.controller] (management-handler-thread - 2) JBAS014774: Service status report
+JBAS014775:    New missing/unsatisfied dependencies:
+      service jboss.deployment.unit."test.war".WeldBootstrapService (missing) dependents: [service jboss.deployment.unit."test.war".component."javax.faces.webapp.FacetTag".WeldInstantiator, service jboss.deployment.unit."test.war".component."org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner".WeldInstantiator, service jboss.deployment.unit."test.war".CdiValidatorFactoryService, service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.PermittedTaglibsTLV".WeldInstantiator] 
+      service jboss.deployment.unit."test.war".WeldStartService (missing) dependents: [service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldInitialListener".WeldInstantiator, service jboss.deployment.unit."test.war".component."javax.faces.webapp.FacetTag".WeldInstantiator, service jboss.deployment.unit."test.war".component."org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner".WeldInstantiator, service jboss.deployment.unit."test.war".CdiValidatorFactoryService, JBAS014799: ... and 2 more ] 
+      service jboss.deployment.unit."test.war".component.BaseDao.CREATE (missing) dependents: [service jboss.deployment.unit."test.war".component.BaseDao.START] 
+      service jboss.deployment.unit."test.war".component.BaseDao.START (missing) dependents: [service jboss.deployment.unit."test.war".moduleDeploymentRuntimeInformationStart, service jboss.undertow.deployment.default-server.default-host./test] 
+      service jboss.deployment.unit."test.war".component.BaseDao.WeldInstantiator (missing) dependents: [service jboss.deployment.unit."test.war".component.BaseDao.START] 
+      service jboss.deployment.unit."test.war".component.BaseDao.ejb.non-functional-timerservice (missing) dependents: [service jboss.deployment.unit."test.war".component.BaseDao.START] 
+      service jboss.deployment.unit."test.war".component."com.sun.faces.config.ConfigureListener".JndiBindingsService (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.deployment.unit."test.war".component."com.sun.faces.config.ConfigureListener".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./test, service jboss.undertow.deployment.default-server.default-host./test.UndertowDeploymentInfoService, service jboss.deployment.unit."test.war".deploymentCompleteService] 
+      service jboss.deployment.unit."test.war".component."javax.faces.webapp.FacetTag".CREATE (missing) dependents: [service jboss.deployment.unit."test.war".component."javax.faces.webapp.FacetTag".START] 
+      service jboss.deployment.unit."test.war".component."javax.faces.webapp.FacetTag".WeldInstantiator (missing) dependents: [service jboss.deployment.unit."test.war".component."javax.faces.webapp.FacetTag".START] 
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.PermittedTaglibsTLV".CREATE (missing) dependents: [service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.PermittedTaglibsTLV".START] 
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.PermittedTaglibsTLV".JndiBindingsService (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.PermittedTaglibsTLV".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./test, service jboss.undertow.deployment.default-server.default-host./test.UndertowDeploymentInfoService] 
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".CREATE (missing) dependents: [service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".START] 
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".JndiBindingsService (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./test, service jboss.undertow.deployment.default-server.default-host./test.UndertowDeploymentInfoService] 
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".WeldInstantiator (missing) dependents: [service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".START] 
+      service jboss.deployment.unit."test.war".component."org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner".CREATE (missing) dependents: [service jboss.deployment.unit."test.war".component."org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner".START] 
+      service jboss.deployment.unit."test.war".component."org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner".JndiBindingsService (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.deployment.unit."test.war".component."org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./test, service jboss.undertow.deployment.default-server.default-host./test.UndertowDeploymentInfoService] 
+      service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldInitialListener".CREATE (missing) dependents: [service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldInitialListener".START] 
+      service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldInitialListener".JndiBindingsService (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldInitialListener".WeldInstantiator (missing) dependents: [service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldInitialListener".START] 
+      service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldTerminalListener".CREATE (missing) dependents: [service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldTerminalListener".START] 
+      service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldTerminalListener".JndiBindingsService (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldTerminalListener".WeldInstantiator (missing) dependents: [service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldTerminalListener".START] 
+      service jboss.deployment.unit."test.war".jndiDependencyService (missing) dependents: [service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldInitialListener".START, service jboss.deployment.unit."test.war".component."javax.faces.webapp.FacetTag".START] 
+      service jboss.deployment.unit."test.war".moduleDeploymentRuntimeInformation (missing) dependents: [service jboss.deployment.unit."test.war".moduleDeploymentRuntimeInformationStart, service jboss.deployment.unit."test.war".component.BaseDao.START] 
+      service jboss.naming.context.java.app.test.env (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.naming.context.java.module.test.test.BeanManager (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.naming.context.java.module.test.test.DefaultDataSource (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.naming.context.java.module.test.test.DefaultManagedExecutorService (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.naming.context.java.module.test.test.DefaultManagedScheduledExecutorService (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.naming.context.java.module.test.test.DefaultManagedThreadFactory (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.naming.context.java.module.test.test.EJBContext (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.naming.context.java.module.test.test.TimerService (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.naming.context.java.module.test.test.TransactionSynchronizationRegistry (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.naming.context.java.module.test.test.UserTransaction (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.naming.context.java.module.test.test.env (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService] 
+      service jboss.naming.context.java.module.test.test.env."edu.system.employment.data.BaseDao".em (missing) dependents: [service jboss.deployment.unit."test.war".jndiDependencyService, service jboss.deployment.unit."test.war".component.BaseDao.START] 
+      service jboss.persistenceunit."test.war#primary" (missing) dependents: [service jboss.deployment.unit."test.war".component."javax.faces.webapp.FacetTag".START, service jboss.deployment.unit."test.war".component."org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner".START, service jboss.undertow.deployment.default-server.default-host./test, service jboss.undertow.deployment.default-server.default-host./test.UndertowDeploymentInfoService, JBAS014799: ... and 5 more ] 
+      service jboss.undertow.deployment.default-server.default-host./test.UndertowDeploymentInfoService (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./test] 
+      service jboss.undertow.deployment.default-server.default-host./test.codec (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./test.UndertowDeploymentInfoService] 
+JBAS014777:   Services which failed to start:      service jboss.persistenceunit."test.war#primary"
+
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.66 sec <<< FAILURE!
+edu.system.employment.test.StudentServiceTest  Time elapsed: 9.655 sec  <<< ERROR!
+org.jboss.arquillian.container.spi.client.container.DeploymentException: Cannot deploy: test.war
+	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:83)
+	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:64)
+	at org.jboss.as.arquillian.container.ArchiveDeployer.deploy(ArchiveDeployer.java:46)
+	at org.jboss.as.arquillian.container.CommonDeployableContainer.deploy(CommonDeployableContainer.java:146)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController$3.call(ContainerDeployController.java:161)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController$3.call(ContainerDeployController.java:128)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController.executeOperation(ContainerDeployController.java:271)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController.deploy(ContainerDeployController.java:127)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.container.impl.client.container.DeploymentExceptionHandler.verifyExpectedExceptionDuringDeploy(DeploymentExceptionHandler.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.container.impl.client.ContainerDeploymentContextHandler.createDeploymentContext(ContainerDeploymentContextHandler.java:78)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.container.impl.client.ContainerDeploymentContextHandler.createContainerContext(ContainerDeploymentContextHandler.java:57)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:135)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:115)
+	at org.jboss.arquillian.core.impl.EventImpl.fire(EventImpl.java:67)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController$1.perform(ContainerDeployController.java:95)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController$1.perform(ContainerDeployController.java:80)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController.forEachDeployment(ContainerDeployController.java:263)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController.forEachManagedDeployment(ContainerDeployController.java:239)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController.deployManaged(ContainerDeployController.java:79)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:135)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:115)
+	at org.jboss.arquillian.core.impl.EventImpl.fire(EventImpl.java:67)
+	at org.jboss.arquillian.container.test.impl.client.ContainerEventController.execute(ContainerEventController.java:101)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createClassContext(TestContextHandler.java:84)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createSuiteContext(TestContextHandler.java:65)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:135)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:115)
+	at org.jboss.arquillian.test.impl.EventTestRunnerAdaptor.beforeClass(EventTestRunnerAdaptor.java:80)
+	at org.jboss.arquillian.junit.Arquillian$2.evaluate(Arquillian.java:182)
+	at org.jboss.arquillian.junit.Arquillian.multiExecute(Arquillian.java:314)
+	at org.jboss.arquillian.junit.Arquillian.access$100(Arquillian.java:46)
+	at org.jboss.arquillian.junit.Arquillian$3.evaluate(Arquillian.java:199)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.jboss.arquillian.junit.Arquillian.run(Arquillian.java:147)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.Exception: {"JBAS014671: Failed services" => {"jboss.persistenceunit.\"test.war#primary\"" => "org.jboss.msc.service.StartException in service jboss.persistenceunit.\"test.war#primary\": java.lang.NoClassDefFoundError: edu/system/employment/model/User
+    Caused by: java.lang.NoClassDefFoundError: edu/system/employment/model/User
+    Caused by: java.lang.ClassNotFoundException: edu.system.employment.model.User from [Module \"deployment.test.war:main\" from Service Module Loader]"}}
+	at org.jboss.as.controller.client.helpers.standalone.impl.ServerDeploymentPlanResultFuture.getActionResult(ServerDeploymentPlanResultFuture.java:134)
+	at org.jboss.as.controller.client.helpers.standalone.impl.ServerDeploymentPlanResultFuture.getResultFromNode(ServerDeploymentPlanResultFuture.java:123)
+	at org.jboss.as.controller.client.helpers.standalone.impl.ServerDeploymentPlanResultFuture.get(ServerDeploymentPlanResultFuture.java:85)
+	at org.jboss.as.controller.client.helpers.standalone.impl.ServerDeploymentPlanResultFuture.get(ServerDeploymentPlanResultFuture.java:42)
+	at org.jboss.as.controller.client.helpers.standalone.ServerDeploymentHelper.deploy(ServerDeploymentHelper.java:55)
+	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:77)
+	... 96 more
+
+20:31:48,349 INFO  [org.jboss.as.controller] (management-handler-thread - 4) JBAS014774: Service status report
+JBAS014776:    Newly corrected services:
+      service jboss.deployment.unit."test.war".WeldBootstrapService (no longer required)
+      service jboss.deployment.unit."test.war".WeldStartService (no longer required)
+      service jboss.deployment.unit."test.war".component.BaseDao.CREATE (no longer required)
+      service jboss.deployment.unit."test.war".component.BaseDao.START (no longer required)
+      service jboss.deployment.unit."test.war".component.BaseDao.WeldInstantiator (no longer required)
+      service jboss.deployment.unit."test.war".component.BaseDao.ejb.non-functional-timerservice (no longer required)
+      service jboss.deployment.unit."test.war".component."com.sun.faces.config.ConfigureListener".JndiBindingsService (no longer required)
+      service jboss.deployment.unit."test.war".component."com.sun.faces.config.ConfigureListener".START (no longer required)
+      service jboss.deployment.unit."test.war".component."javax.faces.webapp.FacetTag".CREATE (no longer required)
+      service jboss.deployment.unit."test.war".component."javax.faces.webapp.FacetTag".WeldInstantiator (no longer required)
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.PermittedTaglibsTLV".CREATE (no longer required)
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.PermittedTaglibsTLV".JndiBindingsService (no longer required)
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.PermittedTaglibsTLV".START (no longer required)
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".CREATE (no longer required)
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".JndiBindingsService (no longer required)
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".START (no longer required)
+      service jboss.deployment.unit."test.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".WeldInstantiator (no longer required)
+      service jboss.deployment.unit."test.war".component."org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner".CREATE (no longer required)
+      service jboss.deployment.unit."test.war".component."org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner".JndiBindingsService (no longer required)
+      service jboss.deployment.unit."test.war".component."org.jboss.arquillian.protocol.servlet.runner.ServletTestRunner".START (no longer required)
+      service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldInitialListener".CREATE (no longer required)
+      service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldInitialListener".JndiBindingsService (no longer required)
+      service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldInitialListener".WeldInstantiator (no longer required)
+      service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldTerminalListener".CREATE (no longer required)
+      service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldTerminalListener".JndiBindingsService (no longer required)
+      service jboss.deployment.unit."test.war".component."org.jboss.weld.servlet.WeldTerminalListener".WeldInstantiator (no longer required)
+      service jboss.deployment.unit."test.war".jndiDependencyService (no longer required)
+      service jboss.deployment.unit."test.war".moduleDeploymentRuntimeInformation (no longer required)
+      service jboss.naming.context.java.app.test.env (no longer required)
+      service jboss.naming.context.java.module.test.test.BeanManager (no longer required)
+      service jboss.naming.context.java.module.test.test.DefaultDataSource (no longer required)
+      service jboss.naming.context.java.module.test.test.DefaultManagedExecutorService (no longer required)
+      service jboss.naming.context.java.module.test.test.DefaultManagedScheduledExecutorService (no longer required)
+      service jboss.naming.context.java.module.test.test.DefaultManagedThreadFactory (no longer required)
+      service jboss.naming.context.java.module.test.test.EJBContext (no longer required)
+      service jboss.naming.context.java.module.test.test.TimerService (no longer required)
+      service jboss.naming.context.java.module.test.test.TransactionSynchronizationRegistry (no longer required)
+      service jboss.naming.context.java.module.test.test.UserTransaction (no longer required)
+      service jboss.naming.context.java.module.test.test.env (no longer required)
+      service jboss.naming.context.java.module.test.test.env."edu.system.employment.data.BaseDao".em (no longer required)
+      service jboss.persistenceunit."test.war#primary" (no longer required)
+      service jboss.undertow.deployment.default-server.default-host./test.UndertowDeploymentInfoService (no longer required)
+      service jboss.undertow.deployment.default-server.default-host./test.codec (no longer required)
+
+20:31:48,357 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) JBAS010418: Stopped Driver service with driver-name = EmploymentSystem-ear.ear_oracle.jdbc.OracleDriver_11_2
+20:31:48,363 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-10) JBAS017535: Unregistered web context: /EmploymentSystem-web
+20:31:48,372 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) JBAS017532: Host default-host stopping
+20:31:48,383 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) JBAS010409: Unbound data source [java:jboss/datasources/ExampleDS]
+20:31:48,385 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 2) JBAS011410: Stopping Persistence Unit (phase 2 of 2) Service 'EmploymentSystem-ear.ear/EmploymentSystem-ejb.jar#primary'
+20:31:48,386 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-9) JBAS010418: Stopped Driver service with driver-name = h2
+20:31:48,387 INFO  [org.jboss.weld.deployer] (MSC service thread 1-12) JBAS016009: Stopping weld service for deployment EmploymentSystem-ear.ear
+20:31:48,397 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 2) JBAS011410: Stopping Persistence Unit (phase 1 of 2) Service 'EmploymentSystem-ear.ear/EmploymentSystem-ejb.jar#primary'
+20:31:48,397 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) JBAS017521: Undertow HTTP listener default suspending
+20:31:48,398 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) JBAS017520: Undertow HTTP listener default stopped, was bound to /127.0.0.1:8080
+20:31:48,399 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) JBAS017506: Undertow 1.0.0.Final stopping
+20:31:48,399 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) JBAS010418: Stopped Driver service with driver-name = oracle
+20:31:48,402 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-14) JBAS015877: Stopped deployment null (runtime-name: EmploymentSystem-ejb.jar) in 50ms
+20:31:48,402 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-16) JBAS015877: Stopped deployment null (runtime-name: EmploymentSystem-web.war) in 50ms
+20:31:48,404 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-14) JBAS015877: Stopped deployment EmploymentSystem-ear.ear (runtime-name: EmploymentSystem-ear.ear) in 54ms
+20:31:48,407 INFO  [org.jboss.as] (MSC service thread 1-2) JBAS015950: WildFly 8.0.0.Final "WildFly" stopped in 42ms
+
+Results :
+
+Tests in error: 
+  edu.system.employment.test.StudentServiceTest: Cannot deploy: test.war
+
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 12.888 s
+[INFO] Finished at: 2014-06-06T20:31:48+02:00
+[INFO] Final Memory: 25M/217M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project EmploymentSystem-ejb: There are test failures.
+[ERROR] 
+[ERROR] Please refer to D:\Workspaces\ee_test\EmploymentSystem\ejb\target\surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

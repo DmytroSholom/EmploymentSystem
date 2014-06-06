@@ -1,6 +1,7 @@
 package edu.system.employment.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
 
 /**
@@ -11,7 +12,8 @@ import javax.persistence.*;
 
 public class Address implements Serializable {
 
-	@Id 
+	@SequenceGenerator(name="addrGen", sequenceName="ADDR_SEQ")
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="addrGen")
 	private long id;
 	
 	private String city;

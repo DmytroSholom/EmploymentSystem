@@ -4,17 +4,20 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
-import edu.system.employment.data.BaseDao;
+import edu.system.employment.data.BaseDaoBean;
 import edu.system.employment.model.Student;
 
 @ManagedBean
 @SessionScoped
 public class UserBean {
 	
-	@Inject
-	private BaseDao dao;
+	public UserBean(){
+		this.student = new Student();
+	}
 	
-	@Inject 
+	@Inject
+	private BaseDaoBean dao;
+	 
 	private Student student;
 	
 	public Student getStudent() {

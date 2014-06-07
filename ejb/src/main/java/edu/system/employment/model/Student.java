@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Entity
 public class Student implements Serializable {	
 	
-	@SequenceGenerator(name="studGen", sequenceName="STUD_SEQ")
+	@SequenceGenerator(name="studGen", sequenceName="STUD_SEQ", allocationSize=1)
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="studGen")
 	private long id;
 	@Column(name="FNAME")

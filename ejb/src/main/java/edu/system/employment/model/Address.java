@@ -12,7 +12,7 @@ import javax.persistence.*;
 
 public class Address implements Serializable {
 
-	@SequenceGenerator(name="addrGen", sequenceName="ADDR_SEQ")
+	@SequenceGenerator(name="addrGen", sequenceName="ADDR_SEQ", allocationSize=1)
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="addrGen")
 	private long id;
 	

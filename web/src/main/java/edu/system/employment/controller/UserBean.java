@@ -1,14 +1,14 @@
 package edu.system.employment.controller;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 
 import edu.system.employment.data.BaseDaoBean;
 import edu.system.employment.model.Student;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class UserBean {
 	
 	public UserBean(){

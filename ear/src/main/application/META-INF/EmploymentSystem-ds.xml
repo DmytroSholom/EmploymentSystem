@@ -19,7 +19,7 @@
 		in META-INF/persistence.xml -->
 	<datasource jndi-name="java:jboss/datasources/EmploymentSystemDS"
 		pool-name="EmploymentSystem" enabled="true" use-java-context="true">
-		<connection-url>jdbc:oracle:thin:@Dmytro-PC:1521:XE</connection-url>
+		<connection-url>jdbc:oracle:thin:@KBP1-DHP-F48296.synapse.com:1521:XE</connection-url>
 		<driver>oracle</driver>
 		<security>
 			<user-name>asoiu_emp</user-name>

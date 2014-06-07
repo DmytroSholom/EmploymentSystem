@@ -11,9 +11,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-@Local(BaseDao.class)
 @Stateless
-public class BaseDaoBean implements BaseDao {
+public class BaseDaoBean {
 
 	@PersistenceContext(unitName="primary")
 	EntityManager em;

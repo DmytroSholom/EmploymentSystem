@@ -13,7 +13,8 @@ import javax.persistence.*;
 @Table(name="AGROUP")
 public class Group implements Serializable {
 
-	@Id
+	@SequenceGenerator(name="groupGen", sequenceName="GROUP_SEQ")
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="groupGen")
 	private long id;
 	
 	private String title;

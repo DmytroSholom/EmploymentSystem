@@ -14,7 +14,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import edu.system.employment.data.BaseDao;
 import edu.system.employment.data.BaseDaoBean;
 import edu.system.employment.data.QueryParameter;
 import edu.system.employment.model.Address;
@@ -31,14 +30,14 @@ public class StudentServiceIT {
 	@Deployment
 	public static JavaArchive createTestableDeployment(){
 		final JavaArchive jar = ShrinkWrap.create(JavaArchive.class, 
-				"example.jar").addPackage(Student.class.getPackage()).addClasses(BaseDao.class, BaseDaoBean.class, 
+				"example.jar").addPackage(Student.class.getPackage()).addClasses(BaseDaoBean.class, 
 				QueryParameter.class).addAsManifestResource("META-INF/persistence.xml", 
 				"persistence.xml").addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
 		return jar;
 	}
 	
 	@EJB
-	BaseDao baseDao;
+	BaseDaoBean baseDao;
 	
 	@Test
 	public void addNewStudentToDB(){

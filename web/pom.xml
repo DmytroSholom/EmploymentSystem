@@ -37,6 +37,26 @@
       </license>
    </licenses>
 
+	
+	<!-- <properties>  
+        <org.richfaces.bom.version>4.1.0.Final</org.richfaces.bom.version>  
+      
+    </properties>  
+  
+    <dependencyManagement>  
+        <dependencies>  
+            <dependency>  
+                <groupId>org.richfaces</groupId>  
+                <artifactId>richfaces-bom</artifactId>  
+                <version>${org.richfaces.bom.version}</version>  
+                <scope>import</scope>  
+                <type>pom</type>  
+            </dependency>  
+            
+        </dependencies>  
+    </dependencyManagement>   -->
+
+
    <dependencies>
 
       <!-- Dependency on the EJB module so we can use it's services if needed -->
@@ -90,7 +110,19 @@
            </exclusions>
        </dependency>
 
-   </dependencies>
+	<dependency>
+		<groupId>org.richfaces.ui</groupId>
+		<artifactId>richfaces-components-ui</artifactId>
+		<version>4.0.0.Final</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.primefaces</groupId>
+		<artifactId>primefaces</artifactId>
+		<version>4.0</version>
+	</dependency>  
+            
+            </dependencies>
 
    <build>
       <finalName>${project.artifactId}</finalName>

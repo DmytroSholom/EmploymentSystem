@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/templates/default.xhtml"
+    xmlns:p="http://primefaces.org/ui">
+	<ui:define name="sideMenu">
+		<ui:include src="StudentSideMenu.xhtml"></ui:include>
+	</ui:define>
+	<ui:define name="content">
+        <h:form enctype="multipart/form-data">
+            <p:fileUpload value="" mode="simple" ></p:fileUpload>
+        </h:form>
+        <h:form>
+		<h:panelGrid columns="2" cellpadding="2">
+            <h3>Основна інформація</h3>
+            <h:outputLabel value="" />
+			<h:outputLabel value="Дата народження:" for="birthDate" class="ui-outputlabel ui-widget"/>
+			<p:calendar id="birthDate" value="#{userBean.student.birthDate}" />
+			<h:outputLabel value="Країна:" for="country" />
+			<p:inputText id="country"  />
+			<h:outputLabel value="Місто:" for="city" />
+			<p:inputText id="city" />
+            <h:outputLabel value="Електронна пошта:" for="email" />
+            <p:inputText id="email" value="#{userBean.student.email}" />
+            <h:outputLabel value="Мобільний телефон:" for="phone" />
+            <p:inputText id="phone" value="#{userBean.student.phone}" />
+
+            <h3>Освіта</h3>
+            <h:outputLabel value="" />
+            <h:outputLabel value="Університет:" for="university" />
+            <p:inputText id="university" value="" />
+            <h:outputLabel value="Факультет:" for="faculty" />
+            <p:inputText id="faculty" value="" />
+            <h:outputLabel value="Факультет:" for="speciality" />
+            <p:inputText id="speciality" value="" />
+            <h:outputLabel value="Факультет:" for="degree" />
+            <p:inputText id="degree" value="" />
+            <h:outputLabel value="Роки навчання:" for="years" />
+                <h:panelGrid id="years" columns="3" cellpadding="2">
+                    <p:inputText id="startYear" value="" style="width: 46px;"/> -
+                    <p:inputText id="endYear" value="" style="width: 46px;" />
+                </h:panelGrid>
+
+            <h3>Додаткові курси</h3>
+            <h:outputLabel value="" />
+            <h:outputLabel value="Дата проходження:" for="courseDate" class="ui-outputlabel ui-widget"/>
+            <p:calendar id="courseDate" value="#{userBean.student.birthDate}" />
+            <h:outputLabel value="Назва:" for="courseName" />
+            <p:inputText id="courseName"  />
+            <h:outputLabel value="Опис:" for="courseDescription" />
+            <p:inputTextarea id="courseDescription" />
+
+            <h3>Іноземна мова</h3>
+            <h:outputLabel value="" />
+            <h:outputLabel value="Мова:" for="foreignLang" />
+            <p:inputText id="foreignLang"  />
+            <h:outputLabel value="Коментар:" for="languageComment" />
+            <p:inputTextarea id="languageComment" />
+
+
+            <h:outputLabel value="Натисніть щоб підтвердити" for="save"  />
+			<p:commandButton id="save" value="Зберегти" style="float: right;" />
+
+		</h:panelGrid>
+        </h:form>
+
+	</ui:define>
+</ui:composition>

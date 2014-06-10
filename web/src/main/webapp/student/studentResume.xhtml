@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/templates/default.xhtml"
+    xmlns:p="http://primefaces.org/ui">
+	<ui:define name="sideMenu">
+		<ui:include src="StudentSideMenu.xhtml"></ui:include>
+	</ui:define>
+	<ui:define name="content">
+
+
+        <div align="center"><p:panelGrid columns="2" align="center">
+            <f:facet name="header">
+                <img alt="hulo" src="/EmploymentSystem-web/resources/huylo.jpg" width="100" height="120" />
+            </f:facet>
+
+            <h:outputText value="Ім'я:" />
+            <h:outputText value="Путні Хуйло Крабович" />
+
+            <h:outputText value="Спеціальність:" />
+            <h:outputText value="Єблан" />
+
+            <h:outputText value="Курс:" />
+            <h:outputText value="Єбланський" />
+
+
+        </p:panelGrid></div>
+        <p:separator/>
+        <h3>Lorem ipsum</h3>
+            <h:outputText value="#{userBean.loremIpsum}">
+
+            </h:outputText>
+        <p:separator/>
+        <h3>Lorem ipsum</h3>
+            <h:outputText value="#{userBean.loremIpsum}">
+
+            </h:outputText>
+        <p:separator/>
+        <h3>Lorem ipsum</h3>
+            <h:outputText value="#{userBean.loremIpsum}">
+
+            </h:outputText>
+
+	</ui:define>
+</ui:composition>

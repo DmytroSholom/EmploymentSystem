@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/templates/default.xhtml"
+    xmlns:p="http://primefaces.org/ui">
+    <!--  <h:outputLabel value="Адреса:" for="address" />
+  <p:inputText id="address"  />-->
+
+    <ui:define name="sideMenu">
+		<ui:include src="CompanySideMenu.xhtml"></ui:include>
+	</ui:define>
+	<ui:define name="content">
+        <h:form enctype="multipart/form-data">
+            <p:fileUpload value="" mode="simple" ></p:fileUpload>
+        </h:form>
+        <h:form>
+		<h:panelGrid columns="2" cellpadding="2">
+            <h3>Основна інформація</h3>
+            <h:outputLabel value="" />
+            <h:outputLabel value="Назва:" for="name" />
+            <p:inputText id="name"  />
+            <h:outputLabel value="Веб сайт:" for="webSite" />
+            <p:inputText id="webSite"  />
+			<h:outputLabel value="Країна:" for="country" />
+			<p:inputText id="country"  />
+			<h:outputLabel value="Місто:" for="city" />
+			<p:inputText id="city" />
+
+            <h:outputLabel value="Опис:" for="courseDescription" />
+            <p:inputTextarea id="courseDescription" />
+            <p:separator/>
+            <h3>Контактна інформація</h3>
+            <h:outputLabel value="" />
+            <h:outputLabel value="ПІБ:" for="conatctName" />
+            <p:inputText id="conatctName"  />
+            <h:outputLabel value="Мобільний телефон:" for="phone" />
+            <p:inputText id="phone"  />
+            <h:outputLabel value="Посада:" for="post" />
+            <p:inputText id="post"  />
+
+            <h:outputLabel value="*Доступні лише співробітнику кафедри для зв'зку:" for="name" />
+            <h:outputLabel value="" />
+
+
+            <h:outputLabel value="Натисніть щоб підтвердити" for="save"  />
+			<p:commandButton id="save" value="Зберегти" style="float: right;" />
+
+		</h:panelGrid>
+        </h:form>
+
+	</ui:define>
+</ui:composition>

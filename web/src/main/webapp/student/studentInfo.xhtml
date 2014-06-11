@@ -16,6 +16,12 @@
 		<h:panelGrid columns="2" cellpadding="2">
             <h3>Основна інформація</h3>
             <h:outputLabel value="" />
+            <h:outputLabel value="Прізвище:" for="lname" />
+            <p:inputText id="lname"  />
+            <h:outputLabel value="Ім'я:" for="fname" />
+            <p:inputText id="fname"  />
+            <h:outputLabel value="По батькові:" for="mname" />
+            <p:inputText id="mname"  />
 			<h:outputLabel value="Дата народження:" for="birthDate" class="ui-outputlabel ui-widget"/>
 			<p:calendar id="birthDate" value="#{userBean.student.birthDate}" />
 			<h:outputLabel value="Країна:" for="country" />

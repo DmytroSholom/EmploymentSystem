@@ -1,6 +1,7 @@
 package edu.system.employment.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -14,7 +15,8 @@ import javax.persistence.*;
 public class Company implements Serializable {
 
 	
-	@Id
+	@SequenceGenerator(name="compGen", sequenceName="COMP_SEQ", allocationSize=1)
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="compGen")
 	private long id;
 	
 	@Column(name="DESCR")
@@ -28,15 +30,20 @@ public class Company implements Serializable {
 
 	private String title;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="CONT_PERS_ID")
 	private ContactPerson contactPerson;
 	
-	@ManyToMany(fetch=FetchType.LAZY)
+	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinTable(name="COMPANY_ADDRESS", 
 				joinColumns=@JoinColumn(name="COMP_ID"),
 				inverseJoinColumns=@JoinColumn(name="ADDR_ID"))
 	private List<Address> addresses;
+	
+	@OneToMany(cascade=CascadeType.ALL, 
+			fetch=FetchType.LAZY, mappedBy = "company")
+	private List<Vacancy> vacancies;
+	
 	
 	
 	public Company() {
@@ -93,6 +100,56 @@ public class Company implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	
+
+	public ContactPerson getContactPerson() {
+		return contactPerson;
+	}
+
+	public void setContactPerson(ContactPerson contactPerson) {
+		this.contactPerson = contactPerson;
+		contactPerson.setCompany(this);
+	}
+	
+	public List<Address> getAddresses() {
+		if (addresses == null) 
+			addresses = new ArrayList<>();
+		return addresses;
+	}
+
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
+	
+	public Address addAddress(Address address) {
+		getAddresses().add(address);
+		return address;
+	}
+
+	public Address removeAddress(Address address) {
+		getAddresses().remove(address);
+		return address;
+	}
+
+	public List<Vacancy> getVacancies() {
+		if(vacancies == null)
+			return new ArrayList<>();
+		return vacancies;
+	}
+	
+	public void setVacancies(List<Vacancy> vacancies) {
+		this.vacancies = vacancies;
+	}
+	
+	public Vacancy addVacancy(Vacancy vacancy){
+		getVacancies().add(vacancy);
+		return vacancy;
+	}
+	
+	public Vacancy removeVacancy(Vacancy vacancy){
+		getVacancies().remove(vacancy);
+		return vacancy;
 	}
 
 	private static final long serialVersionUID = 1L;

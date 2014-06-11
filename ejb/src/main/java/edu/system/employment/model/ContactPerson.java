@@ -11,7 +11,8 @@ import javax.persistence.*;
 @Entity
 public class ContactPerson implements Serializable {
 	
-	@Id
+	@SequenceGenerator(name="contPersGen", sequenceName="CONTACTPERSON_SEQ", allocationSize=1)
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="contPersGen")
 	private long id;
 
 	private String fname;

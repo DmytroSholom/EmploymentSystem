@@ -1,6 +1,7 @@
 package edu.system.employment.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -11,10 +12,14 @@ import javax.persistence.*;
 @Entity
 public class Category implements Serializable {
 	
-	@Id
+	@SequenceGenerator(name="categGen", sequenceName="CATEG_SEQ", allocationSize=1)
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="categGen")
 	private long id;
 
 	private String title;
+	
+	@OneToMany(mappedBy="category", fetch=FetchType.LAZY)
+	private List<Vacancy> vacancies; 
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -36,6 +41,17 @@ public class Category implements Serializable {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	
+
+	public List<Vacancy> getVacancies() {
+		return vacancies;
+	}
+
+
+	public void setVacancies(List<Vacancy> vacancies) {
+		this.vacancies = vacancies;
 	}
 
 

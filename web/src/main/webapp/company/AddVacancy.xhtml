@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/templates/default.xhtml"
+    xmlns:p="http://primefaces.org/ui">
+    <!--  <h:outputLabel value="Адреса:" for="address" />
+  <p:inputText id="address"  />-->
+
+    <ui:define name="sideMenu">
+		<ui:include src="CompanySideMenu.xhtml"></ui:include>
+	</ui:define>
+	<ui:define name="content">
+        <h:form>
+		<h:panelGrid columns="2" cellpadding="2">
+            <h3>Основна інформація</h3>
+            <h:outputLabel value="" />
+
+            <h:outputLabel value="Назва вакансії:" for="title" />
+            <p:inputText id="title"  />
+
+            <h:outputLabel value="Вид зайнятості:" for="occupationType" />
+            <p:inputText id="occupationType"  />
+
+            <h:outputLabel value="Опис:" for="vacancyDescription" />
+            <p:inputTextarea id="vacancyDescription"/>
+
+            <p:outputLabel for="category" value="Категорія:"/>
+            <p:selectOneMenu id="category" style="width: 100px;">
+                <f:selectItem itemLabel="Select One" itemValue="sss"/>
+                <f:selectItem itemLabel="Xbox One" itemValue="sXbox One"/>
+                <f:selectItem itemLabel="PS4" itemValue="sPS4"/>
+                <f:selectItem itemLabel="Wii U" itemValue="sWii U"/>
+            </p:selectOneMenu>
+
+            <h:outputLabel value="Кількість місць:" for="numberOfPositions" />
+            <p:spinner id="numberOfPositions"  />
+
+            <h:outputLabel value="Контактна особа:" for="conatctName" />
+            <p:inputText id="conatctName"  />
+            <h:outputLabel value="Електронна пошта:" for="email" />
+            <p:inputText id="email"  />
+            <h:outputLabel value="Мобільний телефон:" for="phone" />
+            <p:inputText id="phone"  />
+
+
+
+            <p:separator/><p:separator/>
+
+
+            <h3>Знання мов</h3>
+            <h:outputLabel value="" />
+            <h:outputLabel value="Мова:" for="foreignLang" />
+            <p:inputText id="foreignLang"  />
+            <h:outputLabel value="Коментар:" for="languageComment" />
+            <p:inputTextarea id="languageComment" />
+
+            <h:outputLabel value="Натисніть щоб підтвердити" for="save"  />
+			<p:commandButton id="save" value="Зберегти" style="float: right;" />
+
+		</h:panelGrid>
+        </h:form>
+
+	</ui:define>
+</ui:composition>

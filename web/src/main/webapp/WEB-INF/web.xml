@@ -33,7 +33,7 @@
 		<display-name>CompConstraint</display-name>
 		<web-resource-collection>
 			<web-resource-name>creg</web-resource-name>
-			<url-pattern>/reg.xhtml</url-pattern>
+			<url-pattern>/company/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>Company</role-name>
@@ -45,6 +45,9 @@
 	</security-role>
 	<security-role>
 		<role-name>Company</role-name>
+	</security-role>
+	<security-role>
+		<role-name>Admin</role-name>
 	</security-role>
 
 	<login-config>

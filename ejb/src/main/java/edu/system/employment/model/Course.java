@@ -1,16 +1,36 @@
 package edu.system.employment.model;
 
-import java.util.Date;
 
 import javax.persistence.*;
 
-@Embeddable
+@Entity
+@Table(name="COURSES")
 public class Course {
 	
+	@SequenceGenerator(name="courseGen", sequenceName="COURSE_SEQ", allocationSize=1)
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="courseGen")
+	private long id;
 	private String title;
 	private String place;
 	@Column(name="DESCR")
 	private String description;
+	
+	@ManyToOne @JoinColumn(name="STUD_ID")
+	private Student student;
+	
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public Student getStudent() {
+		return student;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
 	public String getTitle() {
 		return title;
 	}

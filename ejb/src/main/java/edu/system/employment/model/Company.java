@@ -44,6 +44,8 @@ public class Company implements Serializable {
 			fetch=FetchType.LAZY, mappedBy = "company")
 	private List<Vacancy> vacancies;
 	
+	@OneToOne @JoinColumn(name="USER_ID")
+	private User user;
 	
 	
 	public Company() {

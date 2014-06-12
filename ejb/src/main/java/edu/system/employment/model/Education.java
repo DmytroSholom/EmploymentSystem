@@ -4,8 +4,12 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-@Embeddable
+@Entity
 public class Education {
+	
+	@SequenceGenerator(name="eduGen", sequenceName="EDU_SEQ", allocationSize=1)
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="eduGen")
+	private long id;
 	
 	private String university;
 	private String speciality;
@@ -17,6 +21,24 @@ public class Education {
 	@Temporal(TemporalType.DATE)
 	@Column(name="END_YEAR")
 	private Date endYear;
+	
+	@ManyToOne @JoinColumn(name="STUD_ID")
+	private Student student;
+	
+	
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public Student getStudent() {
+		return student;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
 	
 	public String getUniversity() {
 		return university;

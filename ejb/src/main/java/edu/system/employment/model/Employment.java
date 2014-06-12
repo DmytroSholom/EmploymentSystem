@@ -4,10 +4,13 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-@Embeddable
+@Entity
 public class Employment {
 	
 	//mlmlm
+	@SequenceGenerator(name="empGen", sequenceName="EMP_SEQ", allocationSize=1)
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="empGen")
+	private long id;
 	private String company;
 	private String position;
 	@Temporal(TemporalType.DATE)
@@ -17,6 +20,23 @@ public class Employment {
 	@Column(name="END_YEAR")
 	private Date endYear;
 	
+	@ManyToOne @JoinColumn(name="STUD_ID")
+	private Student student;
+	
+	
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public Student getStudent() {
+		return student;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
 	public String getCompany() {
 		return company;
 	}

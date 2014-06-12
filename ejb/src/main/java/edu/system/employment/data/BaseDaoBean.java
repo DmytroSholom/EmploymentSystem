@@ -26,6 +26,7 @@ public class BaseDaoBean {
 
 	@SuppressWarnings("unchecked")
 	public <T> T find(Class<T> type, Object id) {
+		T obj = this.em.find(type, id);
 		return (T) this.em.find(type, id);
 	}
 
@@ -66,6 +67,21 @@ public class BaseDaoBean {
 			query.setParameter(entry.getKey(), entry.getValue());
 		}
 		return query.getResultList();
+	}
+	
+	public int updateWithNamedQuery(String namedQueryName){
+		return this.em.createNamedQuery(namedQueryName).executeUpdate();
+	}
+	
+	public <T> T findObjectWithNamedQuery(String namedQueryName, Map<String, Object> parameters) {
+		Set<Entry<String, Object>> rawParameters = parameters.entrySet();
+		Query query = this.em.createNamedQuery(namedQueryName);
+
+		for (Entry<String, Object> entry : rawParameters) {
+			query.setParameter(entry.getKey(), entry.getValue());
+		}
+		return (T) query.getSingleResult();
+		
 	}
 
 }

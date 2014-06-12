@@ -10,6 +10,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -22,6 +23,7 @@ import edu.system.employment.model.Employment;
 import edu.system.employment.model.Group;
 import edu.system.employment.model.Language;
 import edu.system.employment.model.Student;
+import edu.system.employment.model.User;
 
 @RunWith(Arquillian.class)
 public class StudentServiceIT {
@@ -83,21 +85,27 @@ public class StudentServiceIT {
 		lang2.setDescription("native");
 		s.addLanguage(lang1);
 		s.addLanguage(lang2);
-		//Address
-		Address address = new Address();
-		address.setCountry("Ukraine");
-		address.setCity("Kyiv");
-		address.setRayon("Solomiansky");
-		address.setStreet("Lenina");
-		address.setHome("22");
-		address.setZip("37700");
-		s.addAddress(address);
+//		//Address
+//		Address address = new Address();
+//		address.setCountry("Ukraine");
+//		address.setCity("Kyiv");
+//		address.setRayon("Solomiansky");
+//		address.setStreet("Lenina");
+//		address.setHome("22");
+//		address.setZip("37700");
+//		s.addAddress(address);
 		//save
 //		baseDao = new BaseDaoBean();
+		User u = baseDao.find(User.class, "stud2");
+		s.setUser(u);
 		baseDao.create(s);
 		Assert.assertNotNull(s.getId());
-		
-		
+	}
+	
+	@Ignore
+	@Test
+	public void deleteStudents(){
+		baseDao.updateWithNamedQuery("Student.deleteAll");
 	}
 
 }

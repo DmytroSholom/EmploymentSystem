@@ -1,9 +1,7 @@
 package edu.system.employment.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.*;
 
@@ -12,6 +10,12 @@ import javax.persistence.*;
  *
  */
 @Entity
+@NamedQueries({
+		@NamedQuery(name = "Student.deleteAll", 
+				query = "DELETE FROM Student s"),
+		@NamedQuery(name = "Student.findByUserId", 
+				query = "SELECT s FROM Student s WHERE s.user =:p")
+})
 public class Student implements Serializable {	
 	
 	@SequenceGenerator(name="studGen", sequenceName="STUD_SEQ", allocationSize=1)
@@ -33,34 +37,26 @@ public class Student implements Serializable {
 	@ManyToOne(cascade=CascadeType.ALL) @JoinColumn(name="GROUP_ID")
 	private Group group;
 	
-	@ElementCollection(fetch=FetchType.LAZY)
-	@CollectionTable(name="EDUCATION",joinColumns=@JoinColumn(name="STUD_ID"))
-	private List<Education> educations;
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="student", cascade=CascadeType.ALL)
+	private Set<Education> educations = new HashSet<>();
 	
-	@ElementCollection(fetch=FetchType.LAZY)
-	@CollectionTable(name="EMPLOYMENT", joinColumns=@JoinColumn(name="STUD_ID"))
-	private List<Employment> employments;
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="student", cascade=CascadeType.ALL)
+	private Set<Employment> employments = new HashSet<>();
 	
-	@ElementCollection(fetch=FetchType.LAZY)
-	@CollectionTable(name = "COURSES", 
-						joinColumns=@JoinColumn(name="STUD_ID"))
-	private List<Course> courses;
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="student", cascade=CascadeType.ALL)
+	private Set<Course> courses = new HashSet<>();
 	
-	@ElementCollection(fetch=FetchType.LAZY)
-	@CollectionTable(name = "LANGUAGES", 
-						joinColumns=@JoinColumn(name="STUD_ID"))
-	private List<Language> languages;
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="student", cascade=CascadeType.ALL)
+	private Set<Language> languages = new HashSet<>();
 	
-	@ElementCollection(fetch=FetchType.LAZY)
-	@CollectionTable(name = "ADDITIONAL", 
-						joinColumns=@JoinColumn(name="STUD_ID"))
-	private List<Additional> additionals;
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="student", cascade=CascadeType.ALL)
+	private Set<Additional> additionals = new HashSet<>();
 	
-	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="STUDENTS_ADDRESS", 
 				joinColumns=@JoinColumn(name="STUD_ID"),
 				inverseJoinColumns=@JoinColumn(name="ADDR_ID"))
-	private List<Address> addresses;
+	private List<Address> addresses = new ArrayList<>();
 	
 	@OneToOne
 	@JoinColumn(name="USER_ID")
@@ -139,17 +135,16 @@ public class Student implements Serializable {
 		this.group = group;
 	}
 
-	public List<Education> getEducations() {
-		if(educations == null)
-			educations = new ArrayList<>();
+	public Set<Education> getEducations() {
 		return educations;
 	}
 
-	public void setEducations(List<Education> educations) {
+	public void setEducations(Set<Education> educations) {
 		this.educations = educations;
 	}
 	public Education addEducation(Education education) {
 		getEducations().add(education);
+		education.setStudent(this);
 		return education;
 	}
 
@@ -158,18 +153,19 @@ public class Student implements Serializable {
 		return education;
 	}
 
-	public List<Employment> getEmployments() {
+	public Set<Employment> getEmployments() {
 		if(employments == null)
-			employments = new ArrayList<>();
+			employments = new HashSet<>();
 		return employments;
 	}
 
-	public void setEmployments(List<Employment> employments) {
+	public void setEmployments(Set<Employment> employments) {
 		this.employments = employments;
 	}
 	
 	public Employment addEmployment(Employment employment) {
 		getEmployments().add(employment);
+		employment.setStudent(this);
 		return employment;
 	}
 
@@ -178,18 +174,19 @@ public class Student implements Serializable {
 		return employment;
 	}
 
-	public List<Course> getCourses() {
+	public Set<Course> getCourses() {
 		if(courses == null)
-			courses = new ArrayList<>();
+			courses = new HashSet<>();
 		return courses;
 	}
 
-	public void setCourses(List<Course> courses) {
+	public void setCourses(Set<Course> courses) {
 		this.courses = courses;
 	}
 	
 	public Course addCourse(Course course) {
 		getCourses().add(course);
+		course.setStudent(this);
 		return course;
 	}
 
@@ -198,18 +195,19 @@ public class Student implements Serializable {
 		return course;
 	}
 
-	public List<Language> getLanguages() {
+	public Set<Language> getLanguages() {
 		if (languages==null)
-			languages = new ArrayList<>();
+			languages = new HashSet<>();
 		return languages;
 	}
 
-	public void setLanguages(List<Language> languages) {
+	public void setLanguages(Set<Language> languages) {
 		this.languages = languages;
 	}
 	
 	public Language addLanguage(Language language) {
 		getLanguages().add(language);
+		language.setStudent(this);
 		return language;
 	}
 
@@ -218,13 +216,24 @@ public class Student implements Serializable {
 		return language;
 	}
 	
-	public List<Additional> getAdditionals() {
+	public Set<Additional> getAdditionals() {
 		if (additionals==null)
-			additionals = new ArrayList<>();
+			additionals = new HashSet<>();
+		return additionals;
+	}
+	
+	public Additional addAdditional(Additional additionals) {
+		getAdditionals().add(additionals);
+		additionals.setStudent(this);
 		return additionals;
 	}
 
-	public void setAdditionals(List<Additional> additionals) {
+	public Additional removeAdditonals(Additional additionals) {
+		getAddresses().remove(additionals);
+		return additionals;
+	}
+
+	public void setAdditionals(Set<Additional> additionals) {
 		this.additionals = additionals;
 	}
 

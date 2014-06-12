@@ -21,9 +21,6 @@ public class User implements Serializable {
 	@Column(name="U_PASSWORD")
 	private String password;
 	
-	@Column(name="U_TYPE")
-	private String type;
-	
 	public User() {
 		super();
 	}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>EmploymentSystem-web</display-name>
+	<welcome-file-list>
+		<welcome-file>/faces/login.xhtml</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    
+	<security-constraint>
+		<display-name>StudConstraint</display-name>
+		<web-resource-collection>
+			<web-resource-name>sreg</web-resource-name>
+			<url-pattern>/student/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>Student</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	<security-constraint>
+		<display-name>CompConstraint</display-name>
+		<web-resource-collection>
+			<web-resource-name>creg</web-resource-name>
+			<url-pattern>/reg.xhtml</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>Company</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	<security-role>
+		<role-name>Student</role-name>
+	</security-role>
+	<security-role>
+		<role-name>Company</role-name>
+	</security-role>
+
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<realm-name>DBAuthTest</realm-name>
+		<form-login-config>
+			<form-login-page>/login.html</form-login-page>
+			<form-error-page>/login.html</form-error-page>
+		</form-login-config>
+	</login-config>
+</web-app>

@@ -5,10 +5,13 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import org.hibernate.validator.*;
+import org.hibernate.validator.constraints.Email;
 /**
  * Entity implementation class for Entity: Student
  *
  */
+
 @Entity
 @NamedQueries({
 		@NamedQuery(name = "Student.deleteAll", 
@@ -30,6 +33,8 @@ public class Student implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name="BIRTH_DATE")
 	private Date birthDate;
+	
+	@Email
 	private String email;
 	private String phone;
 	private String status;
@@ -38,27 +43,27 @@ public class Student implements Serializable {
 	private Group group;
 	
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="student", cascade=CascadeType.ALL)
-	private Set<Education> educations = new HashSet<>();
+	private Set<Education> educations;
 	
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="student", cascade=CascadeType.ALL)
-	private Set<Employment> employments = new HashSet<>();
+	private Set<Employment> employments;
 	
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="student", cascade=CascadeType.ALL)
-	private Set<Course> courses = new HashSet<>();
+	private Set<Course> courses;
 	
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="student", cascade=CascadeType.ALL)
-	private Set<Language> languages = new HashSet<>();
+	private Set<Language> languages;
 	
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="student", cascade=CascadeType.ALL)
-	private Set<Additional> additionals = new HashSet<>();
+	private Set<Additional> additionals;
 	
-	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="STUDENTS_ADDRESS", 
 				joinColumns=@JoinColumn(name="STUD_ID"),
 				inverseJoinColumns=@JoinColumn(name="ADDR_ID"))
 	private List<Address> addresses = new ArrayList<>();
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="USER_ID")
 	private User user;
 	
@@ -136,6 +141,8 @@ public class Student implements Serializable {
 	}
 
 	public Set<Education> getEducations() {
+		if(educations==null)
+			educations = new HashSet<>();
 		return educations;
 	}
 
@@ -264,6 +271,7 @@ public class Student implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+		user.setStudent(this);
 	}
 
 	public static long getSerialversionuid() {

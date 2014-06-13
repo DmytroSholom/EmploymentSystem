@@ -22,6 +22,7 @@ import edu.system.employment.model.Education;
 import edu.system.employment.model.Employment;
 import edu.system.employment.model.Group;
 import edu.system.employment.model.Language;
+import edu.system.employment.model.Role;
 import edu.system.employment.model.Student;
 import edu.system.employment.model.User;
 
@@ -96,10 +97,12 @@ public class StudentServiceIT {
 //		s.addAddress(address);
 		//save
 //		baseDao = new BaseDaoBean();
-		User u = baseDao.find(User.class, "stud2");
+		User u = new User("studik", "1");
+		Role r = new Role("studik", "Student");
 		s.setUser(u);
 		baseDao.create(s);
 		Assert.assertNotNull(s.getId());
+	
 	}
 	
 	@Ignore

@@ -5,7 +5,7 @@
 	version="2.5">
 	<display-name>EmploymentSystem-web</display-name>
 	<welcome-file-list>
-		<welcome-file>/faces/login.xhtml</welcome-file>
+		<welcome-file>/index.xhtml</welcome-file>
 	</welcome-file-list>
 	
 	<servlet>
@@ -54,8 +54,8 @@
 		<auth-method>FORM</auth-method>
 		<realm-name>DBAuthTest</realm-name>
 		<form-login-config>
-			<form-login-page>/login.html</form-login-page>
-			<form-error-page>/login.html</form-error-page>
+			<form-login-page>/login.xhtml</form-login-page>
+			<form-error-page>/login.xhtml</form-error-page>
 		</form-login-config>
 	</login-config>
 </web-app>

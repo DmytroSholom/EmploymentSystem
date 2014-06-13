@@ -7,7 +7,7 @@
 <h:form>  
     <p:growl id="messages"/>
  
-    <p:menubar style="width: 95%; align-self: center;">
+    <p:menubar style="width: 100%; align-self: center;">
         <p:menuitem label="student" url="/student/studentInfo.xhtml" icon="ui-icon-document" value="Студент"/>
 
 
@@ -23,7 +23,9 @@
         <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
  
         <f:facet name="options">
-            <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+            <p:button rendered="#{not empty request.getUserPrincipal()}" type="button" value="Logout" icon="ui-icon-extlink" />
+            <p:button rendered="#{empty request.getUserPrincipal()}" type="button" value="Login" icon="ui-icon-extlink" outcome="/login.xhtml" />
+            <p:button rendered="#{empty request.getUserPrincipal()}" type="button" value="Register" icon="ui-icon-extlink" outcome="register.xhtml" />
         </f:facet>
     </p:menubar>
 </h:form>

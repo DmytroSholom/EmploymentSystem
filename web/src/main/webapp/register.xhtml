@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/default.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="horizontalMenu">
+		<ui:include src="WEB-INF/templates/HorizontalMenu.xhtml"></ui:include>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<p:wizard>
+				<p:tab id="logInfo" title="Авторизаційні дані">
+					<p:panel header="sms">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputLabel value="Логін: *" for="login" />
+							<p:inputText id="login" value="#{registration.user.login}" required="true"/>
+							<h:outputLabel value="Пароль: *" for="pwd1" />
+							<p:password id="pwd1" feedback="true" match="pwd2" value="#{registration.user.password}" required="true"/>
+							<h:outputLabel value="Повторити пароль: *" for="pwd2" />
+							<p:password id="pwd2" feedback="true" value="#{registration.user.password}" required="true"/>
+							<h:outputLabel value="Тип користувача" for="type" />
+							<h:selectOneMenu id="type" value="#{registration.role.role}">
+								<f:selectItem itemLabel="Студент" itemValue="#{registration.stud}" noSelectionOption="true" />
+								<f:selectItem itemLabel="Компанія" itemValue="#{registration.comp}" />
+							</h:selectOneMenu>
+						</h:panelGrid>
+
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="personal" title="Персональні дані">
+					<p:panel rendered="#{registration.role.role eq registration.stud}" header="sms">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputLabel value="Прізвище:" for="lname" />
+							<p:inputText id="lname" value="#{registration.student.lastName}" />
+							<h:outputLabel value="Ім'я:" for="fname" />
+							<p:inputText id="fname" value="#{registration.student.firstName}" />
+							<h:outputLabel value="По батькові:" for="mname" />
+							<p:inputText id="mname" value="#{registration.student.middleName}"/>
+							<h:outputLabel value="Група:" for="group"/>
+							<h:selectOneMenu id="group" value="#{registration.group.title}">
+								<f:selectItem itemLabel="ІП-01" itemValue="ІП-01" noSelectionOption="true" />
+							</h:selectOneMenu>
+							<h:outputLabel value="Спеціальність:" for="speciality"/>
+							<p:inputText id="speciality" value="#{registration.education.speciality}"/>
+							<h:outputLabel value="Форма навчання:" for="studyForm"/>
+							<p:inputText id="studyForm" />
+							<h:outputLabel value="ОКР:" for="okr" />
+							<p:inputText id="okr" value="#{registration.education.degree}" />
+						</h:panelGrid>
+
+					</p:panel>
+					
+					<p:panel rendered="#{registration.role.role eq registration.comp}" header="sms">
+						<p:messages />
+						Company
+
+					</p:panel>
+				</p:tab>
+				
+				<p:tab id="contact" title="Контакти">
+					<p:panel  header="sms">
+						<p:messages />
+						<h:panelGrid rendered="#{registration.role.role eq registration.stud}" columns="2" columnClasses="label, value">
+							<h:outputLabel value="Телефон:" for="phone" />
+							<p:inputText id="phone" value="#{registration.student.phone}" />
+							<h:outputLabel value="Телефон:" for="email" />
+							<p:inputText id="email" value="#{registration.student.email}"/>
+						</h:panelGrid>						
+					</p:panel>
+					
+					<p:panel rendered="#{registration.role.role eq registration.comp}" header="sms">
+						<p:messages />
+						Company
+
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="confirm" title="Підтвердження">
+					<h:panelGrid id="confirmation" columns="3" cellpadding="30" columnClasses="grid,grid,grid">
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Login: " />
+							<h:outputText value="#{registration.user.login}" styleClass="outputLabel" />
+
+							<h:outputText value="Password: " />
+							<h:outputText value="#{registration.user.password}" styleClass="outputLabel" />
+
+							<h:outputText value="Type: " />
+							<h:outputText value="#{registration.role.role}" styleClass="outputLabel" />
+						</h:panelGrid>
+
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Прізвище: " />
+							<h:outputText value="#{registration.student.lastName}" styleClass="outputLabel" />
+
+							<h:outputText value="Ім'я: " />
+							<h:outputText value="#{registration.student.firstName}" styleClass="outputLabel" />
+
+							<h:outputText value="По-батькові: " />
+							<h:outputText value="#{registration.student.middleName}" styleClass="outputLabel" />
+							
+							<h:outputText value="Група: " />
+							<h:outputText value="#{registration.group.title}" styleClass="outputLabel" />
+							
+							<h:outputText value="Спеціальність: " />
+							<h:outputText value="#{registration.education.speciality}" styleClass="outputLabel" />
+							
+							<h:outputText value="Форма навчання: " />
+							<h:outputText  styleClass="outputLabel" />
+							
+							<h:outputText value="ОКР: " />
+							<h:outputText value="#{registration.education.degree}"  styleClass="outputLabel" />
+						</h:panelGrid>
+
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Email: " />
+							<h:outputText value="#{userWizard.user.email}" styleClass="outputLabel" />
+
+							<h:outputText value="Phone " />
+							<h:outputText value="#{userWizard.user.phone}" styleClass="outputLabel" />
+
+							<h:outputText value="Info: " />
+							<h:outputText value="#{userWizard.user.info}" styleClass="outputLabel" />
+
+							<h:outputText />
+							<h:outputText />
+						</h:panelGrid>
+					</h:panelGrid>
+					
+					<p:commandButton value="Submit" actionListener="#{registration.doRegister}" ajax="false"/>
+				</p:tab>
+			</p:wizard>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

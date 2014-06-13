@@ -23,49 +23,65 @@ public class User implements Serializable {
 	private Student student;
 	
 	@OneToOne(mappedBy="user")
-	private Student company;
+	private Company company;
 	
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="user")
+	private Role role;
 	
 	
 	public User() {
 		super();
 	}
 	
-	
-	
+	public User(String login, String password){
+		this.login = login;
+		this.password = password;
+	}
+
 	public String getLogin() {
 		return login;
 	}
-
-
 
 	public void setLogin(String login) {
 		this.login = login;
 	}
 
-
-
 	public Student getStudent() {
 		return student;
 	}
-
-
 
 	public void setStudent(Student student) {
 		this.student = student;
 	}
 
-
-
-	public Student getCompany() {
+	public Company getCompany() {
 		return company;
 	}
 
-
-
-	public void setCompany(Student company) {
+	public void setCompany(Company company) {
 		this.company = company;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	
+
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+		role.setUser(this);
+	}
+
 
 
 

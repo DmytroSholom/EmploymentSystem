@@ -1,9 +1,10 @@
 package edu.system.employment.test;
 
-import java.math.BigDecimal;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
+import javax.inject.Named;
+import javax.transaction.Transactional;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -19,6 +20,7 @@ import edu.system.employment.data.QueryParameter;
 import edu.system.employment.model.Category;
 import edu.system.employment.model.Company;
 import edu.system.employment.model.Vacancy;
+
 
 @RunWith(Arquillian.class)
 public class VacancyServiceIT {
@@ -52,8 +54,8 @@ public class VacancyServiceIT {
 		
 		Company comp = baseDao.find(Company.class, 2l);
 		Assert.assertNotNull(comp);
-
-		vacancy.setCompany(comp);
+		
+		comp.addVacancy(vacancy);
 		baseDao.update(comp);
 		Assert.assertNotNull(vacancy.getId());
 	}

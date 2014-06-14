@@ -3,6 +3,7 @@ package edu.system.employment.test;
 import java.util.Date;
 
 import javax.ejb.EJB;
+import javax.transaction.Transactional;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -25,6 +26,7 @@ import edu.system.employment.model.Language;
 import edu.system.employment.model.Role;
 import edu.system.employment.model.Student;
 import edu.system.employment.model.User;
+
 
 @RunWith(Arquillian.class)
 public class StudentServiceIT {

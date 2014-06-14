@@ -41,7 +41,7 @@ public class Company implements Serializable {
 	private List<Address> addresses;
 	
 	@OneToMany(cascade=CascadeType.ALL, 
-			fetch=FetchType.LAZY, mappedBy = "company")
+			fetch=FetchType.EAGER, mappedBy = "company")
 	private List<Vacancy> vacancies;
 	
 	@OneToOne @JoinColumn(name="USER_ID")
@@ -146,6 +146,7 @@ public class Company implements Serializable {
 	
 	public Vacancy addVacancy(Vacancy vacancy){
 		getVacancies().add(vacancy);
+		vacancy.setCompany(this);
 		return vacancy;
 	}
 	

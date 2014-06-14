@@ -1,7 +1,7 @@
 package edu.system.employment.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -10,7 +10,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@NamedQuery(name="Vacancy.selectAll", query="SELECT v FROM Vacancy v")
 public class Vacancy implements Serializable {
 
 	@SequenceGenerator(name="vacGen", sequenceName="VAC_SEQ", allocationSize=1)
@@ -19,8 +19,10 @@ public class Vacancy implements Serializable {
 
 	@Column(name="CONT_PERSON_NAME")
 	private String contPersonName;
-
-	private String description;
+	
+	@Lob
+	@Basic(fetch=FetchType.LAZY)
+	private String descr;
 
 	private String email;
 
@@ -28,6 +30,12 @@ public class Vacancy implements Serializable {
 	private String occupTime;
 
 	private String phone;
+	
+	private String salary;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name="CREATE_DATE")
+	private Date creationDate;
 
 	@Column(name="PROPOS_NUMBER")
 	private int proposNumber;
@@ -69,12 +77,12 @@ public class Vacancy implements Serializable {
 
 
 	public String getDescription() {
-		return description;
+		return descr;
 	}
 
 
 	public void setDescription(String description) {
-		this.description = description;
+		this.descr = description;
 	}
 
 
@@ -146,6 +154,27 @@ public class Vacancy implements Serializable {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+	
+
+	public String getSalary() {
+		return salary;
+	}
+
+
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
 
 
 	private static final long serialVersionUID = 1L;

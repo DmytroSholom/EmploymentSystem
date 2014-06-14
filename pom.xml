@@ -56,6 +56,7 @@
             work with JBoss EAP 6. It requires you have access to the JBoss EAP 6
             maven repository. -->
         <!-- <version.jboss.bom>1.0.4.Final-redhat-4</version.jboss.bom>> -->
+		<org.richfaces.bom.version>4.3.7.Final</org.richfaces.bom.version> 
 		
 		<version.org.wildfly.plugins.maven.plugin>1.0.0.Final</version.org.wildfly.plugins.maven.plugin>
 <!--         <version.jboss.as>8.0.0.Final</version.jboss.as> -->
@@ -121,6 +122,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            
+            <dependency>  
+                <groupId>org.richfaces</groupId>  
+                <artifactId>richfaces-bom</artifactId>  
+                <version>${org.richfaces.bom.version}</version>  
+                <scope>import</scope>  
+                <type>pom</type>  
+            </dependency> 
 
         </dependencies>
     </dependencyManagement>

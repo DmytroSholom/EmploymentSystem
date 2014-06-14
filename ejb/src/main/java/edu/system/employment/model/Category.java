@@ -10,6 +10,8 @@ import javax.persistence.*;
  *
  */
 @Entity
+@NamedQueries({@NamedQuery(name="Category.getAll", query="Select c from Category c"),
+	@NamedQuery(name="Category.findByTitle", query="SELECT c FROM Category c WHERE c.title=:title")})
 public class Category implements Serializable {
 	
 	@SequenceGenerator(name="categGen", sequenceName="CATEG_SEQ", allocationSize=1)
@@ -53,12 +55,15 @@ public class Category implements Serializable {
 	public void setVacancies(List<Vacancy> vacancies) {
 		this.vacancies = vacancies;
 	}
-
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	
+	@Override
+	public String toString() {
+		return this.title;
 	}
-
+	
+	public Category(String title){
+		this.title = title;
+	}
 
 	public Category() {
 		super();

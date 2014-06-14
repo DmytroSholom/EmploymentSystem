@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/default.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="sideMenu">
+        <ui:include src="StudentSideMenu.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+    	<h3>#{vacancyViewer.vacancy.title}</h3>
+		<h:panelGrid columns="2" columnClasses="grid, grid">
+			<h:panelGrid columns="2" columnClasses="label, value">
+				<h:outputText value="Компанія" />
+				<h:outputText styleClass="outputLabel" />
+
+				<h:outputText value="Категорія: " />
+				<h:outputText styleClass="outputLabel" />
+
+				<h:outputText value="Заробітна плата: " />
+				<h:outputText value="#{vacancyViewer.vacancy.salary}"
+					styleClass="outputLabel" />
+
+				<h:outputText value="Вид зайнятості: " />
+				<h:outputText value="#{vacancyViewer.vacancy.occupTime}"
+					styleClass="outputLabel" />
+			</h:panelGrid>
+			<h:panelGrid columns="2" columnClasses="label, value">
+				<h:outputText value="Дата створення: " />
+				<h:outputText value="#{vacancyViewer.vacancy.creationDate}" 
+					styleClass="outputLabel" />
+
+				<h:outputText value="Контактна особа: " />
+				<h:outputText value="#{vacancyViewer.vacancy.contPersonName}"
+					styleClass="outputLabel" />
+
+				<h:outputText value="Email: " />
+				<h:outputText value="#{vacancyViewer.vacancy.email}"
+					styleClass="outputLabel" />
+
+				<h:outputText value="Телефон: " />
+				<h:outputText value="#{vacancyViewer.vacancy.phone}"
+					styleClass="outputLabel" />
+			</h:panelGrid>
+		</h:panelGrid>
+		<p:separator />
+		#{vacancyViewer.vacancy.description}
+	</ui:define>
+</ui:composition>

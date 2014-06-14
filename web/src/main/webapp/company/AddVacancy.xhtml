@@ -4,7 +4,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="/WEB-INF/templates/default.xhtml"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:rich="http://richfaces.org/rich">
     <!--  <h:outputLabel value="Адреса:" for="address" />
   <p:inputText id="address"  />-->
 
@@ -18,36 +19,55 @@
             <h:outputLabel value="" />
 
             <h:outputLabel value="Назва вакансії:" for="title" />
-            <p:inputText id="title"  />
-
-            <h:outputLabel value="Вид зайнятості:" for="occupationType" />
-            <p:inputText id="occupationType"  />
-
-            <h:outputLabel value="Опис:" for="vacancyDescription" />
-            <p:inputTextarea id="vacancyDescription"/>
-
+            <p:inputText value="#{vacancyConstructor.vacancy.title}" id="title"  />
+            
             <p:outputLabel for="category" value="Категорія:"/>
-            <p:selectOneMenu id="category" style="width: 100px;">
-                <f:selectItem itemLabel="Select One" itemValue="sss"/>
-                <f:selectItem itemLabel="Xbox One" itemValue="sXbox One"/>
-                <f:selectItem itemLabel="PS4" itemValue="sPS4"/>
-                <f:selectItem itemLabel="Wii U" itemValue="sWii U"/>
+            <p:selectOneMenu id="category" style="width: 100px;" value="#{vacancyConstructor.category}">
+                <f:selectItems value="#{vacancyConstructor.categories}" />
             </p:selectOneMenu>
 
-            <h:outputLabel value="Кількість місць:" for="numberOfPositions" />
-            <p:spinner id="numberOfPositions"  />
-
-            <h:outputLabel value="Контактна особа:" for="conatctName" />
-            <p:inputText id="conatctName"  />
-            <h:outputLabel value="Електронна пошта:" for="email" />
-            <p:inputText id="email"  />
+            <h:outputLabel value="Опис вакансії:" for="vacancyDescription" />
+            <p:editor id="editor" widgetVar="editorWidget" value="#{vacancyConstructor.vacancy.description}" width="600"/>
+            
+            <h:outputLabel value="editor" for="reditor"/>
+            <rich:editor id="reditor" toolbar="full" >
+            <f:facet name="config">
+                    toolbar_custom:
+                        [
+                            { name: 'document', items : [ 'NewPage','Preview' ] },
+                            { name: 'clipboard', items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
+                            { name: 'editing', items : [ 'Find','Replace','-','SelectAll','-','Scayt' ] },
+                            { name: 'insert', items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'
+                                     ,'Iframe' ] },
+                                    '/',
+                            { name: 'styles', items : [ 'Styles','Format' ] },
+                            { name: 'basicstyles', items : [ 'Bold','Italic','Strike','-','RemoveFormat' ] },
+                            { name: 'paragraph', items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote' ] },
+                            { name: 'links', items : [ 'Link','Unlink','Anchor' ] },
+                            { name: 'tools', items : [ 'Maximize','-','About' ] }
+                        ]
+                    </f:facet>
+            </rich:editor>
+            
+            
+            <h:outputLabel value="Зарплата:" for="salary" />
+            <p:inputText id="salary" value="#{vacancyConstructor.vacancy.salary}" />
+            
+            <h:outputLabel value="Вид зайнятості:" for="occupationType" />
+            <p:inputText id="occupationType" value="#{vacancyConstructor.vacancy.occupTime}" />
+            
             <h:outputLabel value="Мобільний телефон:" for="phone" />
-            <p:inputText id="phone"  />
+            <p:inputText id="phone" value="#{vacancyConstructor.vacancy.phone}" />
 
+            <h:outputLabel value="Кількість місць:" for="numberOfPositions" />
+            <p:spinner id="numberOfPositions" value="#{vacancyConstructor.vacancy.proposNumber}" />
+			<p:separator/><p:separator/>
+            <h:outputLabel value="Контактна особа:" for="conatctName" />
+            <p:inputText id="conatctName" value="#{vacancyConstructor.vacancy.contPersonName}" />
+            <h:outputLabel value="Електронна пошта:" for="email" />
+            <p:inputText id="email" value="#{vacancyConstructor.vacancy.email}" />
 
-
-            <p:separator/><p:separator/>
-
+            
 
             <h3>Знання мов</h3>
             <h:outputLabel value="" />
@@ -57,7 +77,7 @@
             <p:inputTextarea id="languageComment" />
 
             <h:outputLabel value="Натисніть щоб підтвердити" for="save"  />
-			<p:commandButton id="save" value="Зберегти" style="float: right;" />
+			<p:commandButton id="save" value="Зберегти" style="float: right;" action="#{vacancyConstructor.doCreate()}"/>
 
 		</h:panelGrid>
         </h:form>

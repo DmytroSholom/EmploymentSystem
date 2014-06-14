@@ -1,9 +1,7 @@
 package edu.system.employment.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -44,7 +42,7 @@ public class Company implements Serializable {
 	
 	@OneToMany(cascade=CascadeType.ALL, 
 			fetch=FetchType.EAGER, mappedBy = "company")
-	private List<Vacancy> vacancies;
+	private Set<Vacancy> vacancies;
 	
 	@OneToOne(cascade = CascadeType.ALL) @JoinColumn(name="USER_ID")
 	private User user;
@@ -136,13 +134,13 @@ public class Company implements Serializable {
 		return address;
 	}
 
-	public List<Vacancy> getVacancies() {
+	public Set<Vacancy> getVacancies() {
 		if(vacancies == null)
-			return new ArrayList<>();
+			return new HashSet<>();
 		return vacancies;
 	}
 	
-	public void setVacancies(List<Vacancy> vacancies) {
+	public void setVacancies(Set<Vacancy> vacancies) {
 		this.vacancies = vacancies;
 	}
 	

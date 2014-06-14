@@ -199,3 +199,8 @@ input {
   text-decoration:none; 
 }
 
+span.vacOutputLabel{
+	font-size: 15pt !important;
+	font-style: Arial;
+}
+

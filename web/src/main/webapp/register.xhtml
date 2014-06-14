@@ -5,12 +5,9 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="/WEB-INF/templates/default.xhtml"
                 xmlns:p="http://primefaces.org/ui">
-
-	<ui:define name="horizontalMenu">
-		<ui:include src="WEB-INF/templates/HorizontalMenu.xhtml"></ui:include>
-	</ui:define>
-
-	<ui:define name="content">
+    
+	<ui:define name="layout">
+        <p:layoutUnit position="center">
 		<h:form>
 			<p:wizard>
 				<p:tab id="logInfo" title="Авторизаційні дані">
@@ -59,25 +56,64 @@
 					
 					<p:panel rendered="#{registration.role.role eq registration.comp}" header="sms">
 						<p:messages />
-						Company
 
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputLabel value="Назва:" for="title" />
+                            <p:inputText id="title" value="#{registration.company.title}" />
+                            <h:outputLabel value="Веб сайт:" for="site" />
+                            <p:inputText id="site" value="#{registration.company.site}" />
+                            <h:outputLabel value="Електронна пошта:" for="compEmail" />
+                            <p:inputText id="compEmail" value="#{registration.company.email}"/>
+
+                            <h:outputLabel value="Опис:" for="description"/>
+                            <p:inputTextarea id="description" value="#{registration.company.description}"/>
+
+                        </h:panelGrid>
+                        <!--<h:outputLabel value="Логотип:" for="logo"/>-->
+                        <!--<h:selectOneMenu id="logo" value="#{registration.group.title}">-->
+                        <!--<f:selectItem itemLabel="ІП-01" itemValue="ІП-01" noSelectionOption="true" />-->
+                        <!--</h:selectOneMenu>-->
 					</p:panel>
 				</p:tab>
 				
 				<p:tab id="contact" title="Контакти">
 					<p:panel  header="sms">
 						<p:messages />
-						<h:panelGrid rendered="#{registration.role.role eq registration.stud}" columns="2" columnClasses="label, value">
-							<h:outputLabel value="Телефон:" for="phone" />
-							<p:inputText id="phone" value="#{registration.student.phone}" />
-							<h:outputLabel value="Телефон:" for="email" />
-							<p:inputText id="email" value="#{registration.student.email}"/>
+						<h:panelGrid  columns="2" columnClasses="label, value">
+                            <h3>Адреса:</h3>
+                            <h:outputLabel value=" " />
+
+                            <h:outputLabel value="Країна:" for="country" />
+                            <p:inputText id="country" value="#{registration.address.country}" />
+                            <h:outputLabel value="Область:" for="region" />
+                            <p:inputText id="region" value="#{registration.address.region}" />
+                            <h:outputLabel value="Район:" for="district" />
+                            <p:inputText id="district" value="#{registration.address.rayon}"  />
+                            <h:outputLabel value="Місто:" for="city" />
+                            <p:inputText id="city" value="#{registration.address.city}" />
+                            <h:outputLabel value="Вулиця:" for="street" />
+                            <p:inputText id="street" value="#{registration.address.street}"/>
+                            <h:outputLabel value="Будинок:" for="building" />
+                            <p:inputText id="building" value="#{registration.address.home}"/>
+                            <h:outputLabel value="Індекс:" for="zipCode" />
+                            <p:inputText id="zipCode" value="#{registration.address.zip}"/>
+
 						</h:panelGrid>						
 					</p:panel>
-					
+					<p:separator/>
+                    <h3>Контактна особа</h3>
 					<p:panel rendered="#{registration.role.role eq registration.comp}" header="sms">
 						<p:messages />
-						Company
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputLabel value="Прізвище:" for="contactPersonlname" />
+                            <p:inputText id="contactPersonlname" value="#{registration.contactPerson.lname}" />
+                            <h:outputLabel value="Ім'я:" for="contactPersonfname" />
+                            <p:inputText id="contactPersonfname" value="#{registration.contactPerson.fname}" />
+                            <h:outputLabel value="Посада:" for="post" />
+                            <p:inputText id="post" value="#{registration.contactPerson.position}"/>
+                            <h:outputLabel value="Телефон:" for="contactPhone"/>
+                            <p:inputText id="contactPhone" value="#{registration.contactPerson.phone}"/>
+                        </h:panelGrid>
 
 					</p:panel>
 				</p:tab>
@@ -85,17 +121,17 @@
 				<p:tab id="confirm" title="Підтвердження">
 					<h:panelGrid id="confirmation" columns="3" cellpadding="30" columnClasses="grid,grid,grid">
 						<h:panelGrid columns="2" columnClasses="label, value">
-							<h:outputText value="Login: " />
+							<h:outputText value="Логін: " />
 							<h:outputText value="#{registration.user.login}" styleClass="outputLabel" />
 
-							<h:outputText value="Password: " />
+							<h:outputText value="Пароль: " />
 							<h:outputText value="#{registration.user.password}" styleClass="outputLabel" />
 
-							<h:outputText value="Type: " />
+							<h:outputText value="Тип користувача: " />
 							<h:outputText value="#{registration.role.role}" styleClass="outputLabel" />
 						</h:panelGrid>
 
-						<h:panelGrid columns="2" columnClasses="label, value">
+						<h:panelGrid columns="2" columnClasses="label, value" rendered="#{registration.role.role eq registration.stud}">
 							<h:outputText value="Прізвище: " />
 							<h:outputText value="#{registration.student.lastName}" styleClass="outputLabel" />
 
@@ -118,25 +154,70 @@
 							<h:outputText value="#{registration.education.degree}"  styleClass="outputLabel" />
 						</h:panelGrid>
 
+                        <h:panelGrid columns="2" columnClasses="label, value" rendered="#{registration.role.role eq registration.comp}">
+                            <h:outputText value="Назва: " />
+                            <h:outputText value="#{registration.company.title}" styleClass="outputLabel" />
+
+                            <h:outputText value="Веб сайт: " />
+                            <h:outputText value="#{registration.company.site}" styleClass="outputLabel" />
+
+                            <h:outputText value="Електронна пошта: " />
+                            <h:outputText value="#{registration.company.email}" styleClass="outputLabel" />
+
+                            <h:outputText value="Опис: " />
+                            <h:outputText value="#{registration.company.description}" styleClass="outputLabel" />
+
+                            <h3>Контактна особа</h3>
+                            <h:outputLabel value=" " />
+
+                            <h:outputLabel value="Прізвище:" />
+                            <h:outputText  value="#{registration.contactPerson.lname}" />
+
+                            <h:outputLabel value="Ім'я:" />
+                            <h:outputText  value="#{registration.contactPerson.fname}" />
+
+                            <h:outputLabel value="Посада:" />
+                            <h:outputText value="#{registration.contactPerson.position}"/>
+
+                            <h:outputLabel value="Телефон:"/>
+                            <h:outputText value="#{registration.contactPerson.phone}"/>
+                        </h:panelGrid>
+
 						<h:panelGrid columns="2" columnClasses="label, value">
-							<h:outputText value="Email: " />
-							<h:outputText value="#{userWizard.user.email}" styleClass="outputLabel" />
+							<h:outputText value="Електронна пошта: " rendered="#{registration.role.role eq registration.stud}"/>
+							<h:outputText value="#{registration.student.email}" styleClass="outputLabel" rendered="#{registration.role.role eq registration.stud}"/>
 
-							<h:outputText value="Phone " />
-							<h:outputText value="#{userWizard.user.phone}" styleClass="outputLabel" />
+							<h:outputText value="Телефон:" rendered="#{registration.role.role eq registration.stud}" />
+							<h:outputText value="#{registration.student.phone}" styleClass="outputLabel" rendered="#{registration.role.role eq registration.stud}"/>
 
-							<h:outputText value="Info: " />
-							<h:outputText value="#{userWizard.user.info}" styleClass="outputLabel" />
+							<h:outputText value="Країна:" />
+							<h:outputText value="#{registration.address.country}" styleClass="outputLabel" />
 
-							<h:outputText />
-							<h:outputText />
+                            <h:outputText value="Область:" />
+                            <h:outputText value="#{registration.address.region}" styleClass="outputLabel" />
+
+                            <h:outputText value="Район:" />
+                            <h:outputText value="#{registration.address.rayon}" styleClass="outputLabel" />
+
+                            <h:outputText value="Місто:" />
+                            <h:outputText value="#{registration.address.city}" styleClass="outputLabel" />
+
+                            <h:outputText value="Вулиця:" />
+                            <h:outputText value="#{registration.address.street}" styleClass="outputLabel" />
+
+                            <h:outputText value="Будинок:" />
+                            <h:outputText value="#{registration.address.home}" styleClass="outputLabel" />
+
+                            <h:outputText value="Поштовий індекс:" />
+                            <h:outputText value="#{registration.address.zip}" styleClass="outputLabel" />
+							
 						</h:panelGrid>
 					</h:panelGrid>
 					
-					<p:commandButton value="Submit" actionListener="#{registration.doRegister}" ajax="false"/>
+					<p:commandButton value="Підтвердити" action="#{registration.doRegister}" ajax="false"/>
 				</p:tab>
 			</p:wizard>
-		</h:form>
+		</h:form></p:layoutUnit>
 	</ui:define>
 
 </ui:composition>

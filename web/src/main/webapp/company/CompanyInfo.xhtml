@@ -15,37 +15,66 @@
         <h:form enctype="multipart/form-data">
             <p:fileUpload value="" mode="simple" ></p:fileUpload>
         </h:form>
-        <h:form>
+        <h:form id="forma">
 		<h:panelGrid columns="2" cellpadding="2">
             <h3>Основна інформація</h3>
             <h:outputLabel value="" />
             <h:outputLabel value="Назва:" for="name" />
-            <p:inputText id="name"  />
+            <p:inputText id="name" value="#{companyInfoBean.company.title}" />
             <h:outputLabel value="Веб сайт:" for="webSite" />
-            <p:inputText id="webSite"  />
-			<h:outputLabel value="Країна:" for="country" />
-			<p:inputText id="country"  />
-			<h:outputLabel value="Місто:" for="city" />
-			<p:inputText id="city" />
-
+            <p:inputText id="webSite"  value="#{companyInfoBean.company.site}"/>
+            <h:outputLabel value="Електронна пошта:" for="compEmail" />
+            <p:inputText id="compEmail" value="#{companyInfoBean.company.email}"/>
             <h:outputLabel value="Опис:" for="companyDescription" />
-            <p:inputTextarea id="companyDescription"/>
-            <p:separator/>
+            <p:inputTextarea id="companyDescription" value="#{companyInfoBean.company.description}"/>
+
+            <p:separator/><p:separator/>
+
+            <ui:repeat var="addr" value="#{companyInfoBean.retrieveListAsSet(companyInfoBean.company.addresses)}" varStatus="status">
+                <p:fieldset  legend="Адреса" style="margin-bottom:20px; position:relative">
+                    <h:panelGrid columns="2" cellpadding="2" style="margin-right:auto; margin-left:auto">
+                        <h:outputLabel value="Країна:" for="country" />
+                        <p:inputText id="country" value="#{addr.country}" />
+                        <h:outputLabel value="Область:" for="region" />
+                        <p:inputText id="region" value="#{addr.region}" />
+                        <h:outputLabel value="Район:" for="district" />
+                        <p:inputText id="district" value="#{addr.rayon}"  />
+                        <h:outputLabel value="Місто:" for="city" />
+                        <p:inputText id="city" value="#{addr.city}" />
+                        <h:outputLabel value="Вулиця:" for="street" />
+                        <p:inputText id="street" value="#{addr.street}"/>
+                        <h:outputLabel value="Будинок:" for="building" />
+                        <p:inputText id="building" value="#{addr.home}"/>
+                        <h:outputLabel value="Індекс:" for="zipCode" />
+                        <p:inputText id="zipCode" value="#{addr.zip}"/>
+                    </h:panelGrid>
+                    <ui:fragment rendered="#{status.last}">
+                        <p:commandButton id="eduButton"   icon="ui-icon-circle-plus"
+                                         actionListener="#{companyInfoBean.addAddress}" update=":forma" title="Додати ще адресу" />
+                    </ui:fragment>
+                </p:fieldset>
+            </ui:repeat>
+
+            <h:outputLabel value="" />
+            <p:separator/><p:separator/>
+
             <h3>Контактна інформація</h3>
             <h:outputLabel value="" />
-            <h:outputLabel value="ПІБ:" for="conatctName" />
-            <p:inputText id="conatctName"  />
+            <h:outputLabel value="Ім'я:" for="conatctаName" />
+            <p:inputText id="conatctаName"  value="#{companyInfoBean.contactPerson.fname}" />
+            <h:outputLabel value="Прізвище:" for="conatctlName" />
+            <p:inputText id="conatctlName"  value="#{companyInfoBean.contactPerson.lname}" />
             <h:outputLabel value="Мобільний телефон:" for="phone" />
-            <p:inputText id="phone"  />
+            <p:inputText id="phone" value="#{companyInfoBean.contactPerson.phone}" />
             <h:outputLabel value="Посада:" for="post" />
-            <p:inputText id="post"  />
+            <p:inputText id="post" value="#{companyInfoBean.contactPerson.position}" />
 
-            <h:outputLabel value="*Доступні лише співробітнику кафедри для зв'зку:" for="name" />
+            <h:outputLabel value="*Доступні лише співробітнику кафедри для зв'зку" for="name" />
             <h:outputLabel value="" />
 
 
             <h:outputLabel value="Натисніть щоб підтвердити" for="save"  />
-			<p:commandButton id="save" value="Зберегти" style="float: right;" />
+			<p:commandButton id="save" action="#{companyInfoBean.doSave}" value="Зберегти" style="float: right;" />
 
 		</h:panelGrid>
         </h:form>

@@ -2,7 +2,9 @@ package edu.system.employment.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -34,17 +36,17 @@ public class Company implements Serializable {
 	@JoinColumn(name="CONT_PERS_ID")
 	private ContactPerson contactPerson;
 	
-	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="COMPANY_ADDRESS", 
 				joinColumns=@JoinColumn(name="COMP_ID"),
 				inverseJoinColumns=@JoinColumn(name="ADDR_ID"))
-	private List<Address> addresses;
+	private Set<Address> addresses;
 	
 	@OneToMany(cascade=CascadeType.ALL, 
 			fetch=FetchType.EAGER, mappedBy = "company")
 	private List<Vacancy> vacancies;
 	
-	@OneToOne @JoinColumn(name="USER_ID")
+	@OneToOne(cascade = CascadeType.ALL) @JoinColumn(name="USER_ID")
 	private User user;
 	
 	
@@ -114,13 +116,13 @@ public class Company implements Serializable {
 		contactPerson.setCompany(this);
 	}
 	
-	public List<Address> getAddresses() {
+	public Set<Address> getAddresses() {
 		if (addresses == null) 
-			addresses = new ArrayList<>();
+			addresses = new HashSet<>();
 		return addresses;
 	}
 
-	public void setAddresses(List<Address> addresses) {
+	public void setAddresses(Set<Address> addresses) {
 		this.addresses = addresses;
 	}
 	
@@ -156,5 +158,15 @@ public class Company implements Serializable {
 	}
 
 	private static final long serialVersionUID = 1L;
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+        user.setCompany(this);
+    }
 
 }

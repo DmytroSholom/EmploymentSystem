@@ -27,32 +27,36 @@
 </h:head>
 <h:body>
 
+
     <div id="container">
 
         <div class="dualbrand" style="position:relative">
-            <img alt="logo" src="/EmploymentSystem-web/resources/gfx/dualbrand_logo.png"/>
-            <h:outputText style="position:absolute; right: 10px; bottom:10px; font-family:Lucida Console; font-size: 15px; font-weight:bold" 
-            			value="Вітаємо #{request.getUserPrincipal().getName()}"/>
+            <img alt="logo" src="/EmploymentSystem-web/resources/fuck.jpg"/>
+
+            <h1 align="center">Пока пьозди!</h1>
+            <h:outputText
+                    style="position:absolute; right: 10px; bottom:10px; font-family:Lucida Console; font-size: 15px; font-weight:bold"
+                    value="Вітаємо #{request.getUserPrincipal().getName()}"/>
         </div>
         <div id="horizontalMenu">
             <ui:include src="HorizontalMenu.xhtml"></ui:include>
         </div>
         <div id="content">
-           	 <p:layout style="min-width:400px;min-height:800px; width: 100%;">
-                <p:layoutUnit position="west" resizable="true" minSize="200" style="width: 20%;">
-                    <ui:insert name="sideMenu"></ui:insert>
-                </p:layoutUnit>
+            <ui:insert name="layout">
+                <p:layout style="min-width:400px;min-height:800px; width: 100%;">
+                    <p:layoutUnit position="west" resizable="true" minSize="200" style="width: 20%;">
+                        <ui:insert name="sideMenu"></ui:insert>
+                    </p:layoutUnit>
 
-                <p:layoutUnit position="center" style="width: 80%; height: 50%;">
-                    <ui:insert name="content">
-                        [Template content will be inserted here]
-                    </ui:insert>
-                </p:layoutUnit>
-            </p:layout>
+                    <p:layoutUnit position="center" style="width: 80%; height: 50%;">
+                        <ui:insert name="content">
+                            [Template content will be inserted here]
+                        </ui:insert>
+                    </p:layoutUnit>
+                </p:layout>
+            </ui:insert>
 
         </div>
-
-
         <div id="footer">
             <p>
                 This project was generated from a Maven archetype from

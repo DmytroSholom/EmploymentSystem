@@ -1,0 +1,91 @@
+package edu.system.employment.controller.company;
+
+import edu.system.employment.data.BaseDaoBean;
+import edu.system.employment.model.Address;
+import edu.system.employment.model.Company;
+import edu.system.employment.model.ContactPerson;
+import edu.system.employment.model.User;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import java.io.Serializable;
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+
+@Model
+public class CompanyInfoBean{
+
+    @Inject
+    private BaseDaoBean baseDao;
+
+    @Inject
+    private Principal principal;
+
+    private User user;
+    private Company company;
+   
+    private ContactPerson contactPerson;
+
+    @PostConstruct
+    public void init(){
+        this.user = baseDao.find(User.class, principal.getName());
+        this.company = user.getCompany();
+       
+        this.contactPerson = company.getContactPerson();
+    }
+
+
+    public void doSave(){
+        baseDao.update(this.company);
+    }
+
+
+    public Principal getPrincipal() {
+        return principal;
+    }
+
+    public void setPrincipal(Principal principal) {
+        this.principal = principal;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public ContactPerson getContactPerson() {
+        return contactPerson;
+    }
+
+    public void setContactPerson(ContactPerson contactPerson) {
+        this.contactPerson = contactPerson;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
+    
+    public List retrieveListAsSet( Set set) {
+		return new ArrayList(set);
+	}
+
+    public void addAddress(){
+        Address address = new Address();
+        this.company.addAddress(address);
+    }
+}

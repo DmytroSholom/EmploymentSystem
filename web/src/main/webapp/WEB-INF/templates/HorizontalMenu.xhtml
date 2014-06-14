@@ -16,12 +16,6 @@
 
         <p:menuitem label="company" icon="ui-icon-help" value="Компанія"  url="/company/CompanyInfo.xhtml"/>
 
-
-        <p:menuitem label="fuck it" icon="ui-icon-gear" value="fuck it"/>
-           
- 
-        <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
- 
         <f:facet name="options">
             <p:button rendered="#{not empty request.getUserPrincipal()}" type="button" value="Logout" icon="ui-icon-extlink" />
             <p:button rendered="#{empty request.getUserPrincipal()}" type="button" value="Login" icon="ui-icon-extlink" outcome="/login.xhtml" />

@@ -21,8 +21,8 @@
             <h:outputLabel value="Назва вакансії:" for="title" />
             <p:inputText value="#{vacancyConstructor.vacancy.title}" id="title"  />
             
-            <p:outputLabel for="category" value="Категорія:"/>
-            <p:selectOneMenu id="category" style="width: 100px;" value="#{vacancyConstructor.category}">
+            <p:outputLabel for="category" value="Категорія:" />
+            <p:selectOneMenu id="category" style="width: 100px;" value="#{vacancyConstructor.category}" editable="true">
                 <f:selectItems value="#{vacancyConstructor.categories}" />
             </p:selectOneMenu>
 

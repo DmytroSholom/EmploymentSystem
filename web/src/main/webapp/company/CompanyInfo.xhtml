@@ -13,10 +13,13 @@
 	</ui:define>
 	<ui:define name="content">
         <h:form enctype="multipart/form-data">
-            <p:fileUpload value="" mode="simple" ></p:fileUpload>
+            <p:fileUpload value="#{companyInfoBean.file}" mode="simple"></p:fileUpload>
+            <p:commandButton value="Завантажити" ajax="false" actionListener="#{companyInfoBean.upload}"/>
         </h:form>
         <h:form id="forma">
 		<h:panelGrid columns="2" cellpadding="2">
+            <img src="#{companyInfoBean.company.logo}" width="100" height="50"/>
+            <h:outputLabel value="" />
             <h3>Основна інформація</h3>
             <h:outputLabel value="" />
             <h:outputLabel value="Назва:" for="name" />

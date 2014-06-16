@@ -57,7 +57,12 @@ public class BaseDaoBean {
 		return this.em.createNativeQuery(sql, type).getResultList();
 	}
 
-	public List findWithNamedQuery(String namedQueryName,
+    public <T> List<T> findByQuery(String sql) {
+        return this.em.createQuery(sql).getResultList();
+    }
+
+
+    public List findWithNamedQuery(String namedQueryName,
 			Map<String, Object> parameters, int resultLimit) {
 		Set<Entry<String, Object>> rawParameters = parameters.entrySet();
 		Query query = this.em.createNamedQuery(namedQueryName);

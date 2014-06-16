@@ -11,8 +11,12 @@ import javax.persistence.*;
 @Entity
 
 public class Address implements Serializable {
+    @Override
+    public String toString() {
+        return "" + city +", "+ country +", " + home +", "+  rayon +", "+  region +", "+  street+", " +  zip ;
+    }
 
-	@SequenceGenerator(name="addrGen", sequenceName="ADDR_SEQ", allocationSize=1)
+    @SequenceGenerator(name="addrGen", sequenceName="ADDR_SEQ", allocationSize=1)
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="addrGen")
 	private long id;
 	

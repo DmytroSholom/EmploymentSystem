@@ -1,10 +1,8 @@
 package edu.system.employment.controller.company;
 
 import edu.system.employment.data.BaseDaoBean;
-import edu.system.employment.model.Address;
-import edu.system.employment.model.Company;
-import edu.system.employment.model.ContactPerson;
-import edu.system.employment.model.User;
+import edu.system.employment.model.*;
+import org.primefaces.model.UploadedFile;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -12,7 +10,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import java.io.Serializable;
+import java.io.*;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +30,47 @@ public class CompanyInfoBean{
     private Company company;
    
     private ContactPerson contactPerson;
+
+    private UploadedFile file;
+
+    public UploadedFile getFile() {
+        return file;
+    }
+
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
+
+    public void upload(){
+
+        FileOutputStream out = null;
+        String filePath = System.getProperty("user.dir") + File.separator +"images"+ File.separator+"company"+ File.separator;
+        new File(filePath).mkdirs();
+        try {
+
+            File outputFile = new File(filePath+this.company.getTitle()+file.getFileName());
+            outputFile.createNewFile();
+            out = new FileOutputStream(outputFile);
+            byte[] bytes = new byte[2048];
+            InputStream in = file.getInputstream();
+            while(in.read(bytes, 0, 2048)>0){
+                out.write(bytes);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (out != null) {
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        this.company.setLogo(filePath+this.company.getTitle()+file.getFileName());
+        baseDao.update(this.company);
+    }
 
     @PostConstruct
     public void init(){

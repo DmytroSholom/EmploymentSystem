@@ -7,26 +7,33 @@ import java.util.Set;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import edu.system.employment.model.Company;
 
 @Stateless
 public class BaseDaoBean {
 
 	@PersistenceContext(unitName="primary")
 	EntityManager em;
-
+	
 	public <T> T create(T t) {
 		this.em.persist(t);
 		this.em.flush();
 		this.em.refresh(t);
 		return t;
 	}
+	
+	public void flush(){
+		em.flush();
+	}
 
 	@SuppressWarnings("unchecked")
 	public <T> T find(Class<T> type, Object id) {
-		T obj = this.em.find(type, id);
 		return (T) this.em.find(type, id);
 	}
 
@@ -78,6 +85,7 @@ public class BaseDaoBean {
 		return this.em.createNamedQuery(namedQueryName).executeUpdate();
 	}
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public <T> T findObjectWithNamedQuery(String namedQueryName, Map<String, Object> parameters) {
 		Set<Entry<String, Object>> rawParameters = parameters.entrySet();
 		Query query = this.em.createNamedQuery(namedQueryName);

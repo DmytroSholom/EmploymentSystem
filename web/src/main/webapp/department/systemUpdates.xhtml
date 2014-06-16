@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/default.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="sideMenu">
+        <ui:include src="DepartmentSideMenu.xhtml"></ui:include>
+    </ui:define>
+    <ui:define name="content">
+    <h:form id="form">
+    	<p:growl id="growl" life="2000" />
+		<p:tabView dynamic="true" cache="false">
+			<p:tab title="Заявки студентів">
+				<h:outputText value="Немає нових заявок..." rendered="#{updates.students.isEmpty() eq true}" />
+				<ui:repeat var="upd"
+					value="#{updates.students}" varStatus="status">
+					<p:panel id="toggleable" header="Заявка #{upd.id}"
+						toggleable="true" closable="true" toggleSpeed="500"
+						closeSpeed="500" widgetVar="#{status.count}"
+						style="margin-bottom:20px; position:relative">
+
+						<p:ajax event="close" />
+						<p:ajax event="toggle" />
+
+						<h:panelGrid columns="2" cellpadding="10">
+							<img src="/EmploymentSystem-web/resources/kobe.png" width="100"
+								height="110" />
+							<h:panelGrid columns="2" cellpadding="10">
+								<h:panelGrid columns="2" cellpadding="5">
+									<h:outputText value="Ім'я: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.firstName}" style="font-family:Zapf Chancery; font-size: 15px; font-style:italic"
+										styleClass="outputLabel" />
+									<h:outputText value="Прізвище: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.lastName}" style="font-family:Zapf Chancery; font-size: 15px; font-style:italic"
+										styleClass="outputLabel" />
+									<h:outputText value="По-батькові: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.middleName}" style="font-family:Zapf Chancery; font-size: 15px; font-style:italic"
+										styleClass="outputLabel" />
+								</h:panelGrid>
+								<h:panelGrid columns="2" cellpadding="5">
+									<h:outputText value="Дата створення: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.creationDate}" style="font-family:Zapf Chancery; font-size: 15px; font-style:italic" />
+									<h:outputText value="Група: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.group.title}" style="font-family:Zapf Chancery; font-size: 15px; font-style:italic" />
+									<h:outputText value="Email: "
+										style="font-family:Zapf Chancery; font-size: 15px;"  />
+									<h:outputText value="#{upd.updatable.email}" style="font-family:Zapf Chancery; font-size: 15px; font-style:italic"/>
+								</h:panelGrid>
+							</h:panelGrid>
+						</h:panelGrid>
+						<div id="buttons" style="position: absolute; bottom:10px; right:10px">
+						<p:commandButton value="Підтвердити" action="#{updates.accept(upd)}" onclick="PF(#{status.count}).close()" update=":form:growl"/>
+						<p:commandButton value="Відхилити" action="#{updates.decline(upd)}" onclick="PF(#{status.count}).close()"  update=":form:growl"/>
+						<p:button value="Переглянути" >
+							<f:param name="vacancyId" value="#{vacancy.id}" />
+						</p:button>
+						</div>
+
+						<f:facet name="options">
+							<p:menu>
+								<p:submenu label="Settings">
+									<p:menuitem value="Toggle" url="#" icon="ui-icon-newwin"
+										onclick="PF(#{status.count}).toggle()" />
+									<p:menuitem value="Remove" url="#" icon="ui-icon-close"
+										onclick="PF(#{status.count}).close()" />
+								</p:submenu>
+							</p:menu>
+						</f:facet>
+
+					</p:panel>
+				</ui:repeat>
+			</p:tab>
+			<p:tab title="Заявки компаній">
+				<h:outputText value="Немає нових заявок..." rendered="#{updates.companies.isEmpty()}" />
+								<ui:repeat var="upd"
+					value="#{updates.companies}" varStatus="status">
+					<p:panel id="toggleable" header="Заявка #{upd.id}"
+						toggleable="true" closable="true" toggleSpeed="500"
+						closeSpeed="500" widgetVar="#{status.count}"
+						style="margin-bottom:20px; position:relative">
+
+						<p:ajax event="close" />
+						<p:ajax event="toggle" />
+
+						<h:panelGrid columns="2" cellpadding="10">
+							<img src="/EmploymentSystem-web/resources/kobe.png" width="100"
+								height="110" />
+							<h:panelGrid columns="2" cellpadding="10">
+								<h:panelGrid columns="2" cellpadding="5">
+									<h:outputText value="Назва: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.title}}" style="font-family:Zapf Chancery; font-size: 15px; font-style:italic"
+										styleClass="outputLabel" />
+									<h:outputText value="Сайт: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.site}"
+										styleClass="outputLabel" />
+									<h:outputText value="Email: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.email}"
+										styleClass="outputLabel" />
+								</h:panelGrid>
+								<h:panelGrid columns="2" cellpadding="10">
+									<h:outputText value="Дата створення: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.creationDate}" />
+									<h:outputText value="Контактна особа: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.contactPerson.fname}  #{upd.updatable.contactPerson.lname}" />
+
+								</h:panelGrid>
+							</h:panelGrid>
+						</h:panelGrid>
+						<div id="buttonscmp" style="position: absolute; bottom:10px; right:10px">
+						<p:commandButton value="Підтвердити" />
+						<p:button value="Відхилити" />
+						<p:button value="Переглянути">
+							<f:param name="vacancyId" value="#{vacancy.id}" />
+						</p:button>
+						</div>
+
+						<f:facet name="options">
+							<p:menu>
+								<p:submenu label="Settings">
+									<p:menuitem value="Toggle" url="#" icon="ui-icon-newwin"
+										onclick="PF('panel').toggle()" />
+									<p:menuitem value="Remove" url="#" icon="ui-icon-close"
+										onclick="PF('panel').close()" />
+								</p:submenu>
+							</p:menu>
+						</f:facet>
+
+					</p:panel>
+				</ui:repeat>
+			</p:tab>
+			<p:tab title="Нові листи саморпацевлаштування">
+				<h:panelGrid columns="2" cellpadding="10">
+					<p:graphicImage name="demo/images/godfather/godfather3.jpg" />
+					<h:outputText value="В процесі реалізації..." />
+				</h:panelGrid>
+			</p:tab>
+			<p:tab title="Нові вакансії">
+				<h:outputText value="Немає нових заявок..." rendered="#{updates.vacancies.isEmpty()}" />
+					<ui:repeat var="upd"
+						value="#{updates.vacancies}" varStatus="status">
+					<p:panel id="toggleable" header="Заявка #{status.count}"
+						toggleable="true" closable="true" toggleSpeed="500"
+						closeSpeed="500" widgetVar="#{status.count}"
+						style="margin-bottom:20px; position:relative">
+
+						<p:ajax event="close" />
+						<p:ajax event="toggle" />
+
+						<h:panelGrid columns="2" cellpadding="10">
+							<img src="/EmploymentSystem-web/resources/kobe.png" width="100"
+								height="110" />
+							<h:panelGrid columns="2" cellpadding="10">
+								<h:panelGrid columns="2" cellpadding="10">
+									<h:outputText value="Назва: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.title}"
+										styleClass="outputLabel" />
+									<h:outputText value="Категроія: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.category.title}"
+										styleClass="outputLabel" />
+									<h:outputText value="Компанія: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.company.title}"
+										styleClass="outputLabel" />
+								</h:panelGrid>
+								<h:panelGrid columns="2" cellpadding="10">
+									<h:outputText value="Дата створення: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.creationDate}" />
+									<h:outputText value="Контактна особа: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.contPersonName}" />
+									<h:outputText value="Email: "
+										style="font-family:Zapf Chancery; font-size: 15px;" />
+									<h:outputText value="#{upd.updatable.email}" />
+								</h:panelGrid>
+							</h:panelGrid>
+						</h:panelGrid>
+						<div id="buttons" style="position: absolute; bottom:10px; right:10px">
+						<p:commandButton value="Підтвердити" action="#{updates.accept(upd)}" update=":form:growl" onclick="PF(#{status.count}).close()" />
+						<p:commandButton value="Відхилити" action="#{updates.decline}" onclick="PF(#{status.count}).close()" />
+						<p:button value="Переглянути" >
+							<f:param name="vacancyId" value="#{vacancy.id}" />
+						</p:button>
+						</div>
+
+						<f:facet name="options">
+							<p:menu>
+								<p:submenu label="Settings">
+									<p:menuitem value="Toggle" url="#" icon="ui-icon-newwin"
+										onclick="PF('panel').toggle()" />
+									<p:menuitem value="Remove" url="#" icon="ui-icon-close"
+										onclick="PF('panel').close()" />
+								</p:submenu>
+							</p:menu>
+						</f:facet>
+
+					</p:panel>
+				</ui:repeat>
+			</p:tab>
+		</p:tabView>
+	</h:form>
+	</ui:define>
+</ui:composition>

@@ -10,8 +10,12 @@ import javax.persistence.*;
  *
  */
 @Entity
-@NamedQuery(name="Vacancy.selectAll", query="SELECT v FROM Vacancy v")
-public class Vacancy implements Serializable {
+@NamedQueries({
+@NamedQuery(name="Vacancy.selectAll", query="SELECT v FROM Vacancy v"),
+@NamedQuery(name="Vacancy.selectByDate", 
+				query="SELECT v FROM Vacancy v WHERE v.creationDate=:date")
+})
+public class Vacancy implements Serializable, Updatable {
 
 	@SequenceGenerator(name="vacGen", sequenceName="VAC_SEQ", allocationSize=1)
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="vacGen")
@@ -174,8 +178,10 @@ public class Vacancy implements Serializable {
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
-
-
+	
+	public User getUser(){
+		return this.company.getUser();
+	}
 
 	private static final long serialVersionUID = 1L;
 

@@ -42,6 +42,8 @@ public class StudentServiceIT {
 	
 	@EJB
 	BaseDaoBean baseDao;
+	Student s;
+	User u;
 	
 	@Test
 	public void addNewStudentToDB(){
@@ -99,8 +101,8 @@ public class StudentServiceIT {
 //		s.addAddress(address);
 		//save
 //		baseDao = new BaseDaoBean();
-		User u = new User("studik", "1");
-		Role r = new Role("studik", "Student");
+		User u = new User("sik", "1");
+		Role r = new Role("sik", "Student");
 		s.setUser(u);
 		baseDao.create(s);
 		Assert.assertNotNull(s.getId());

@@ -4,14 +4,14 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-<h:form>  
+<h:form style="padding-top:0px">  
     <p:growl id="messages"/>
  
-    <p:menubar style="width: 100%; align-self: center;">
+    <p:menubar style="width: 100%; align-self: center;" >
         <p:menuitem label="student" url="/student/studentInfo.xhtml" icon="ui-icon-document" value="Студент"/>
 
 
-        <p:menuitem label="department" icon="ui-icon-pencil" value="Кафедра"/>
+        <p:menuitem label="department" url="/department/systemUpdates.xhtml"  icon="ui-icon-pencil" value="Кафедра"/>
 
 
         <p:menuitem label="company" icon="ui-icon-help" value="Компанія"  url="/company/CompanyInfo.xhtml"/>

@@ -1,12 +1,16 @@
 package edu.system.employment.controller.company;
 
 import java.security.Principal;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.FinderException;
+import javax.enterprise.event.Event;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
 
 import edu.system.employment.data.BaseDaoBean;
@@ -23,6 +27,8 @@ public class VacancyConstructor {
 	private BaseDaoBean daoBean;
 	@Inject
 	private Principal principal;
+	@Inject
+	private Event<Vacancy> vacancyAddedEvent;
 	
 	
 	private Company company;
@@ -38,13 +44,22 @@ public class VacancyConstructor {
 		this.vacancy.setCategory(new Category());
 		this.categories = daoBean.findWithNamedQuery("Category.getAll");
 	}
-	@Transactional(Transactional.TxType.REQUIRED)
+	
+	@Transactional(value=Transactional.TxType.REQUIRED, dontRollbackOn={NoResultException.class})
 	public String doCreate(){
-		Category ctg = daoBean.findObjectWithNamedQuery("Category.findByTitle", QueryParameter.with("title", category).parameters());
-		if(ctg==null) ctg = new Category();
+		Category ctg;
+		try {
+			ctg = daoBean.findObjectWithNamedQuery("Category.findByTitle", QueryParameter.with("title", category).parameters());
+		} catch (Exception e) {
+			ctg=null;
+		}
+		if(ctg==null) ctg = new Category(category);
+		else ctg = daoBean.find(Category.class, ctg.getId());
 		vacancy.setCategory(ctg);
-		company.addVacancy(vacancy);
+		vacancy.setCreationDate(new Date());
+		vacancy = company.addVacancy(vacancy);
 		daoBean.update(company);
+		vacancyAddedEvent.fire(vacancy);
 		return "CompanyInfo";
 	}
 

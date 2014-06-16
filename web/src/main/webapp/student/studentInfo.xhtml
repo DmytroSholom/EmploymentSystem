@@ -13,64 +13,131 @@
             <p:fileUpload value="" mode="simple" ></p:fileUpload>
             <p:commandButton value="Завантажити" ajax="false" />
         </h:form>
-        <h:form>
-		<h:panelGrid columns="2" cellpadding="2">
-            <h3>Основна інформація</h3>
-            <h:outputLabel value="" />
+        <h:form >
+		<h:panelGrid columns="2" cellpadding="5" style="margin-right:auto; margin-left:auto; width:8o%" >
+			<img alt="logo" src="/EmploymentSystem-web/resources/fuck.jpg"/>
+			<h:panelGrid columns="2" cellpadding="5" >
+            <h3>Персональна інформація</h3>
+            <h:outputLabel value="" style="font-size:12pt"/>
             <h:outputLabel value="Прізвище:" for="lname" />
-            <p:inputText id="lname"  />
-            <h:outputLabel value="Ім'я:" for="fname" />
-            <p:inputText id="fname"  />
-            <h:outputLabel value="По батькові:" for="mname" />
-            <p:inputText id="mname"  />
-			<h:outputLabel value="Дата народження:" for="birthDate" class="ui-outputlabel ui-widget"/>
-			<p:calendar id="birthDate" value="#{userBean.student.birthDate}" />
-			<h:outputLabel value="Країна:" for="country" />
-			<p:inputText id="country"  />
-			<h:outputLabel value="Місто:" for="city" />
-			<p:inputText id="city" />
-            <h:outputLabel value="Електронна пошта:" for="email" />
-            <p:inputText id="email" value="#{userBean.student.email}" />
-            <h:outputLabel value="Мобільний телефон:" for="phone" />
-            <p:inputText id="phone" value="#{userBean.student.phone}" />
+            <p:inplace id="lname" editor="true" style="font-size:12pt">
+            	<p:inputText value="#{studentInfoBean.student.lastName}" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace>
+            <h:outputLabel value="Ім'я:" for="fname" style="font-size:12pt"/>
+            <p:inplace id="fname" editor="true" style="font-size:12pt">
+            	<p:inputText value="#{studentInfoBean.student.firstName}" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace>
+            <h:outputLabel value="По батькові:" for="mname" style="font-size:12pt"/>
+            <p:inplace id="mname" editor="true" style="font-size:12pt">
+            	<p:inputText value="#{studentInfoBean.student.middleName}" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace>
+			<h:outputLabel value="Дата народження:" for="birthDate" class="ui-outputlabel ui-widget" style="font-size:12pt"/>
+			<p:inplace id="birthDate" editor="true" style="font-size:12pt">
+            	<p:calendar value="#{studentInfoBean.student.birthDate}" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace>
+			
+            <h:outputLabel value="Електронна пошта:" for="email" style="font-size:12pt" />
+            <p:inplace id="email" editor="true" style="font-size:12pt">
+            	<p:inputText value="#{studentInfoBean.student.email}" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace>
+        	<h:outputLabel value="Мобільний телефон:" for="phone" style="font-size:12pt"/>
+            <p:inplace id="phone" editor="true" style="font-size:12pt">
+            	<p:inputText value="#{studentInfoBean.student.middleName}" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace>
+        	</h:panelGrid>
+        	
+           </h:panelGrid> 
+            <h:panelGrid columns="2" cellpadding="5" style="margin-right:auto; margin-left:auto">
+            <h:panelGrid columns="2" cellpadding="5">
+        	<h3>Навчання</h3>
+        	<h:outputLabel value="" />
+            <h:outputLabel value="Університет:" for="university" style="font-size:12pt"/>
+            <p:inplace id="university" editor="true" style="font-size:12pt">
+            	<p:inputText value="#{studentInfoBean.education.university}" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace>
+            <h:outputLabel value="Факультет:" for="faculty" style="font-size:12pt" />
+            <p:inplace id="faculty" editor="true" style="font-size:12pt">
+            	<p:inputText value="#{studentInfoBean.education.department}" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace>
+            <h:outputLabel value="Спеціальність:" for="speciality" style="font-size:12pt"/>
+            <p:inplace id="speciality" editor="true" style="font-size:12pt">
+            	<p:inputText value="#{studentInfoBean.education.speciality}" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace>
+            <h:outputLabel value="ОКР:" for="degree" style="font-size:12pt"/>
+            <p:inplace id="degree" editor="true" style="font-size:12pt">
+            	<p:inputText value="#{studentInfoBean.education.degree}" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace>
+        	<h:outputLabel value="форма навчання:" for="studyForm" style="font-size:12pt"/>
+            <p:inplace id="studyForm" editor="true" style="font-size:12pt">
+            	<p:inputText value="" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace>
+            <h:outputLabel value="Рік вступу:" for="startYear" style="font-size:12pt"/>
+            <p:inplace id="startYear" editor="true" style="font-size:12pt">
+            	<p:inputText value="#{studentInfoBean.education.startYear}" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace>
+        	<h:outputLabel value="Рік вступу:" for="startYear" style="font-size:12pt"/>
+            <p:inplace id="endYear" editor="true" style="font-size:12pt">
+            	<p:inputText value="#{studentInfoBean.education.endYear}" required="true" label="text" 
+            		style="font-size:12pt"/>
+        	</p:inplace> 
+        	</h:panelGrid>  
+        	<h:panelGrid columns="2" cellpadding="5">
+        	
+					<h3>Адреса </h3>
+					<h:outputLabel value="" />
+					<h:outputLabel value="Країна:" for="country" style="font-size:12pt"/>
+					<p:inplace id="country" editor="true" style="font-size:12pt">
+            			<p:inputText value="#{studentInfoBean.addr.country}" required="true" label="text" 
+            				style="font-size:12pt"/>
+        			</p:inplace>
+					<h:outputLabel value="Область:" for="region" style="font-size:12pt"/>
+					<p:inplace id="region" editor="true" style="font-size:12pt">
+						<p:inputText value="#{studentInfoBean.addr.region}"
+							required="true" label="text" style="font-size:12pt" />
+					</p:inplace>
+					<h:outputLabel value="Район:" for="district" style="font-size:12pt"/>
+					<p:inplace id="district" editor="true" style="font-size:12pt">
+						<p:inputText value="#{studentInfoBean.addr.rayon}"
+							required="true" label="text" style="font-size:12pt" />
+					</p:inplace>
+					<h:outputLabel value="Місто:" for="city" style="font-size:12pt"/>
+					<p:inplace id="city" editor="true" style="font-size:12pt">
+						<p:inputText value="#{studentInfoBean.addr.city}"
+							required="true" label="text" style="font-size:12pt" />
+					</p:inplace>
+					<h:outputLabel value="Вулиця:" for="street" style="font-size:12pt"/>
+					<p:inplace id="street" editor="true" style="font-size:12pt">
+						<p:inputText value="#{studentInfoBean.addr.street}"
+							required="true" label="text" style="font-size:12pt" />
+					</p:inplace>
+					<h:outputLabel value="Будинок:" for="building" style="font-size:12pt" />
+					<p:inplace id="building" editor="true" style="font-size:12pt">
+						<p:inputText value="#{studentInfoBean.addr.home}"
+							required="true" label="text" style="font-size:12pt" />
+					</p:inplace>
+					<h:outputLabel value="Індекс:" for="zipCode" style="font-size:12pt"/>
+					<p:inplace id="zipCode" editor="true" style="font-size:12pt">
+						<p:inputText value="#{studentInfoBean.addr.zip}"
+							required="true" label="text" style="font-size:12pt" />
+					</p:inplace>
+	        	</h:panelGrid>  
+			</h:panelGrid>
+				
+			<p:commandButton id="save" value="Зберегти" />
 
-            <h3>Освіта</h3>
-            <h:outputLabel value="" />
-            <h:outputLabel value="Університет:" for="university" />
-            <p:inputText id="university" value="" />
-            <h:outputLabel value="Факультет:" for="faculty" />
-            <p:inputText id="faculty" value="" />
-            <h:outputLabel value="Спеціальність:" for="speciality" />
-            <p:inputText id="speciality" value="" />
-            <h:outputLabel value="ОКР:" for="degree" />
-            <p:inputText id="degree" value="" />
-            <h:outputLabel value="Роки навчання:" for="years" />
-                <h:panelGrid id="years" columns="3" cellpadding="2">
-                    <p:inputText id="startYear" value="" style="width: 46px;"/> -
-                    <p:inputText id="endYear" value="" style="width: 46px;" />
-                </h:panelGrid>
-
-            <h3>Додаткові курси</h3>
-            <h:outputLabel value="" />
-            <h:outputLabel value="Дата проходження:" for="courseDate" class="ui-outputlabel ui-widget"/>
-            <p:calendar id="courseDate" value="#{userBean.student.birthDate}" />
-            <h:outputLabel value="Назва:" for="courseName" />
-            <p:inputText id="courseName"  />
-            <h:outputLabel value="Опис:" for="courseDescription" />
-            <p:inputTextarea id="courseDescription" />
-
-            <h3>Іноземна мова</h3>
-            <h:outputLabel value="" />
-            <h:outputLabel value="Мова:" for="foreignLang" />
-            <p:inputText id="foreignLang"  />
-            <h:outputLabel value="Коментар:" for="languageComment" />
-            <p:inputTextarea id="languageComment" />
-
-
-            <h:outputLabel value="Натисніть щоб підтвердити" for="save"  />
-			<p:commandButton id="save" value="Зберегти" style="float: right;" />
-
-		</h:panelGrid>
+		
         </h:form>
 
 	</ui:define>

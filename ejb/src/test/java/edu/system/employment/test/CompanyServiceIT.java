@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 
 
+
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -18,6 +19,7 @@ import edu.system.employment.data.QueryParameter;
 import edu.system.employment.model.Company;
 import edu.system.employment.model.ContactPerson;
 import edu.system.employment.model.Student;
+import edu.system.employment.model.User;
 
 @RunWith(Arquillian.class)
 public class CompanyServiceIT {
@@ -33,6 +35,9 @@ public class CompanyServiceIT {
 	
 	@Inject
 	private BaseDaoBean baseDao;
+	private Company company;
+	private ContactPerson pers;
+	private User user;
 	
 	@Test
 	public void addCompanyToDB(){
@@ -49,4 +54,5 @@ public class CompanyServiceIT {
 		baseDao.create(comp);
 		Assert.assertNotNull(comp.getId());
 	}
+	
 }

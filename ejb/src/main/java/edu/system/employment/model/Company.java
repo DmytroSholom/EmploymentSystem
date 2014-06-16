@@ -12,7 +12,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-public class Company implements Serializable {
+public class Company implements Serializable, Updatable {
 
 	
 	@SequenceGenerator(name="compGen", sequenceName="COMP_SEQ", allocationSize=1)

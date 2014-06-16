@@ -41,7 +41,7 @@ import org.hibernate.validator.constraints.Email;
 		@NamedQuery(name = "Student.getAll", 
 		query = "SELECT s FROM Student s")
 })
-public class Student implements Serializable {	
+public class Student implements Serializable, Updatable {	
 	
 	@SequenceGenerator(name="studGen", sequenceName="STUD_SEQ", allocationSize=1)
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="studGen")
@@ -79,11 +79,11 @@ public class Student implements Serializable {
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="student", cascade=CascadeType.ALL)
 	private Set<Additional> additionals;
 	
-	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="STUDENTS_ADDRESS", 
 				joinColumns=@JoinColumn(name="STUD_ID"),
 				inverseJoinColumns=@JoinColumn(name="ADDR_ID"))
-	private List<Address> addresses = new ArrayList<>();
+	private List<Address> addresses;
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="USER_ID")

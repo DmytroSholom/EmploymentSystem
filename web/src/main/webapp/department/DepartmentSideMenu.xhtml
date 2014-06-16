@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:form>
+
+        <p:panelMenu style="width:100%;">
+            <p:submenu label="Керування">
+                <p:menuitem value="Переглянути оновлення"  url="systemUpdates.xhtml"  icon="ui-icon-document" />
+            </p:submenu>
+            <p:submenu label="Студенти">
+                <p:menuitem value="Переглянути "  icon="ui-icon-document" />
+                <p:menuitem value="Редагувати"  icon="ui-icon-arrowrefresh-1-w" />
+            </p:submenu>
+            <p:separator /><p:separator />
+            <p:submenu label="Компанії">
+                <p:menuitem value="Переглянути "  icon="ui-icon-document" />
+            </p:submenu>
+            <p:submenu label="Договора">
+                <p:menuitem value="Переглянути "  icon="ui-icon-document" />
+            </p:submenu>
+            <p:submenu label="Звітнісь">
+                <p:menuitem value="Переглянути " url="report.xhtml" icon="ui-icon-document" />
+            </p:submenu>
+
+        </p:panelMenu>
+    </h:form>
+</ui:composition>

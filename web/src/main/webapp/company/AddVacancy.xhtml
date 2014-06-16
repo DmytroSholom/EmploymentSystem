@@ -4,10 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="/WEB-INF/templates/default.xhtml"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:rich="http://richfaces.org/rich">
-    <!--  <h:outputLabel value="Адреса:" for="address" />
-  <p:inputText id="address"  />-->
+    xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="sideMenu">
 		<ui:include src="CompanySideMenu.xhtml"></ui:include>
@@ -21,35 +18,15 @@
             <h:outputLabel value="Назва вакансії:" for="title" />
             <p:inputText value="#{vacancyConstructor.vacancy.title}" id="title"  />
             
-            <p:outputLabel for="category" value="Категорія:" />
-            <p:selectOneMenu id="category" style="width: 100px;" value="#{vacancyConstructor.category}" editable="true">
+
+            <p:outputLabel for="category" value="Категорія:"/>
+            <p:selectOneMenu id="category" style="width: 100px;" value="#{vacancyConstructor.category}" editable="true" >
                 <f:selectItems value="#{vacancyConstructor.categories}" />
             </p:selectOneMenu>
 
             <h:outputLabel value="Опис вакансії:" for="vacancyDescription" />
             <p:editor id="editor" widgetVar="editorWidget" value="#{vacancyConstructor.vacancy.description}" width="600"/>
-            
-            <h:outputLabel value="editor" for="reditor"/>
-            <rich:editor id="reditor" toolbar="full" >
-            <f:facet name="config">
-                    toolbar_custom:
-                        [
-                            { name: 'document', items : [ 'NewPage','Preview' ] },
-                            { name: 'clipboard', items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
-                            { name: 'editing', items : [ 'Find','Replace','-','SelectAll','-','Scayt' ] },
-                            { name: 'insert', items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'
-                                     ,'Iframe' ] },
-                                    '/',
-                            { name: 'styles', items : [ 'Styles','Format' ] },
-                            { name: 'basicstyles', items : [ 'Bold','Italic','Strike','-','RemoveFormat' ] },
-                            { name: 'paragraph', items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote' ] },
-                            { name: 'links', items : [ 'Link','Unlink','Anchor' ] },
-                            { name: 'tools', items : [ 'Maximize','-','About' ] }
-                        ]
-                    </f:facet>
-            </rich:editor>
-            
-            
+                     
             <h:outputLabel value="Зарплата:" for="salary" />
             <p:inputText id="salary" value="#{vacancyConstructor.vacancy.salary}" />
             

@@ -3,9 +3,11 @@ package edu.system.employment.controller;
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.event.Event;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.NamedQuery;
 
 import edu.system.employment.data.BaseDaoBean;
 import edu.system.employment.model.*;
@@ -13,12 +15,16 @@ import edu.system.employment.model.*;
 @Named("registration")
 @ViewScoped
 public class RegistrationWizard implements Serializable{
-	
+	private static final String stud = "Student";
+	private static final String comp = "Company";
 	
 	@Inject
 	private BaseDaoBean daoBean;
-	private static final String stud = "Student";
-	private static final String comp = "Company";
+	@Inject
+	private Event<Student> studentRegisterEvent;
+	@Inject
+	private Event<Company> companyRegisterEvent;
+
 	
 	private Group group;
 	private User user;
@@ -53,6 +59,7 @@ public class RegistrationWizard implements Serializable{
             this.company.addAddress(address);
             this.company.setContactPerson(contactPerson);
             daoBean.create(company);
+            companyRegisterEvent.fire(company);
         }
         if(stud.equals(role.getRole())) {
             this.student.setUser(user);
@@ -60,6 +67,7 @@ public class RegistrationWizard implements Serializable{
             this.student.addEducation(education);
             this.student.addAddress(address);
             daoBean.create(student);
+            studentRegisterEvent.fire(student);
         }
 		return "index";
 	}

@@ -32,18 +32,18 @@
 
     <div id="container">
 
-        <div class="dualbrand" style="position:relative">
+        <div class="dualbrand" style="position:relative; margin-bottom:0px; padding-bottom:0px;">
         
-            <img alt="logo" src="/EmploymentSystem-web/resources/employment.jpg" style="float: left; padding-left: 15px; padding-bottom: 25px; position: absolute;"/>
+            <img alt="logo" src="/EmploymentSystem-web/resources/employment.jpg" style=" padding-left: 15px; padding-bottom: 0px; "/>
             
-            <h1 align="center">АСОІУ</h1>
-            <h3 align="center">ІоС "Працевлаштування"</h3>
+            <h1 align="center" style="position:absolute; top:10px; left:350px">АСОІУ</h1>
+            <h3 align="center" style="position:absolute; top:160px; left:350px">ІоС "Працевлаштування"</h3>
         
             <h:outputText
-                    style="position:absolute; right: 10px; bottom:10px; font-family:Lucida Console; font-size: 15px; font-weight:bold"
+                    style="position:absolute; right: 10px; bottom:20px; font-family:Lucida Console; font-size: 15px; font-weight:bold"
                     value="Вітаємо #{request.getUserPrincipal().getName()}"/>
         </div>
-        <div id="horizontalMenu">
+        <div id="horizontalMenu" style="padding-top:0px; marging-top:0px">
             <ui:include src="HorizontalMenu.xhtml"></ui:include>
         </div>
         <div id="content">
